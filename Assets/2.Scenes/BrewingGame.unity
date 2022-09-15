@@ -777,14 +777,14 @@ MonoBehaviour:
   topBound: {fileID: 1016858466}
   bottomBound: {fileID: 1052449500}
   sweetSpot: {fileID: 1909538359}
-  motion: 3
-  sweetSpotTimeRandomizer: 3
+  motion: 4
+  sweetSpotTimeRandomizer: 2
   brewZone: {fileID: 153916704}
   brewSize: 0.15
   brewSpeed: 0.1
   brewGravity: 0.05
   progressContainer: {fileID: 2101688099}
-  power: 0.1
+  power: 0.2
   decay: 0.1
 --- !u!1 &1909538358
 GameObject:
