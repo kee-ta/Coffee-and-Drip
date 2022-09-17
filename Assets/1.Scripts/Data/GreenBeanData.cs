@@ -6,20 +6,17 @@ public class GreenBeanData : Ingredient, IRoastable
     public RoastModifier light;
     public RoastModifier medium;
     public RoastModifier dark;
-    public RoastModifier darkThenBlack;
 
     public GreenBeanData(){
         this.light = new RoastModifier();
         this.medium = new RoastModifier();
         this.dark = new RoastModifier();
-        this.darkThenBlack = new RoastModifier();
     }
     
-    public GreenBeanData(RoastModifier light, RoastModifier medium, RoastModifier dark, RoastModifier darkThenBlack)
+    public GreenBeanData(RoastModifier light, RoastModifier medium, RoastModifier dark)
     {
         this.light = light;
         this.medium = medium;
         this.dark = dark;
-        this.darkThenBlack = darkThenBlack;
     }
 }

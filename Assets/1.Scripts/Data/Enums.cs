@@ -2,8 +2,7 @@ public enum RoastLevel
 {
     LIGHT,
     MEDIUM,
-    DARK,
-    DARKERTHANBLACK
+    DARK
 }
 public class RoastModifier
 {

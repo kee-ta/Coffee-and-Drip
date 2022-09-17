@@ -31,7 +31,7 @@ public class RawCoffeeSack : MonoBehaviour
     }
 
     public void Spawn(){
-        Instantiate(prefab);
+        Instantiate(prefab,transform.position,transform.rotation);
         Debug.Log("Spawning!");
     }
 
