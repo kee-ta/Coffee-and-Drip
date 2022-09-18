@@ -9,16 +9,15 @@ public class RawCoffeeBeans : MonoBehaviour
 
     private int sweetness, acidity, aroma;
 
-
-    public RawCoffeeBeans(string beanName , GreenBeanData stats){
-        this.beanName = beanName;
-        rawStats = stats;
-
-    }
     // Start is called before the first frame update
     void Start()
     {
-        
+        sweetness =0; acidity=0; aroma = 0;
+        beanName = "Magic Bean";
+    }
+
+    public string GetName(){
+        return beanName;
     }
 
     // Update is called once per frame
