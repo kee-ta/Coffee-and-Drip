@@ -16,6 +16,11 @@ public class God : SingletonController<God>
         Roaster.startRoastingGame -= ActivateRoastingGame;
     }
 
+    private void Start() 
+    {
+
+    }
+
     void ActivateRoastingGame()
     {
         roastingGame.SetActive(true);

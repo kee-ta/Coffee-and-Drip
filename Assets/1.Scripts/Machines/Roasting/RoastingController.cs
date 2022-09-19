@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class RoastingController : MonoBehaviour
 {
     public static Action RoastingStarted;
+    public static Action<RoastLevel> RoastingEnded;
+    public RoastLevel currentRoastLevel;
 
     [SerializeField] Image lightGauge, mediumGauge, darkGauge;
     [SerializeField] Button roast, end;
@@ -19,7 +21,11 @@ public class RoastingController : MonoBehaviour
     private void OnDisable() 
     {
         RoastZoneRotate.roastTick -=AddProgress;
-        progress = 0;
+        lightGauge.fillAmount = 0;
+        mediumGauge.fillAmount = 0;
+        darkGauge.fillAmount = 0;
+        roast.gameObject.SetActive(true);
+        end.gameObject.SetActive(false);
     }
     public void AddProgress()
     {
@@ -29,19 +35,29 @@ public class RoastingController : MonoBehaviour
     public void FillGauge()
     {
         if(lightGauge.fillAmount<1.0f){
-            lightGauge.fillAmount += 0.08f;
+            lightGauge.fillAmount += 0.05f;
+            currentRoastLevel = RoastLevel.LIGHT;
         }
         else if(mediumGauge.fillAmount <1.0f){
             mediumGauge.fillAmount += 0.08f;
+            currentRoastLevel = RoastLevel.MEDIUM;
         }
         else if(darkGauge.fillAmount <1.0f){
             darkGauge.fillAmount += 0.08f;
+            currentRoastLevel = RoastLevel.DARK;
         }
     }
     public void BeginRoasting()
     {
         RoastingStarted?.Invoke();
         RoastingButtonSwitch();
+    }
+
+    public void EndedRoasting()
+    {
+        RoastingEnded?.Invoke(currentRoastLevel);
+        RoastingButtonSwitch();
+        this.gameObject.SetActive(false);
     }
 
     public void RoastingButtonSwitch()

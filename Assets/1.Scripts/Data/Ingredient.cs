@@ -8,4 +8,5 @@ public class Ingredient
     public int sweetness;
     public int acidity;
     public int aroma;
+    public int ingredientID;
 }

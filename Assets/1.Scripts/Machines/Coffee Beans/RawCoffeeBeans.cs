@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RawCoffeeBeans : MonoBehaviour
 {
-    GreenBeanData rawStats = new GreenBeanData();
+    public GreenBeanData rawStats = new GreenBeanData();
     private string beanName;
 
     private int sweetness, acidity, aroma;
