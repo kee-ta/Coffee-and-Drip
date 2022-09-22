@@ -12,6 +12,8 @@ public class Mortar : MonoBehaviour
     [SerializeField]
     List<Sprite> sprites = new List<Sprite>();
 
+    public GroundedCoffeeBeans grinds;
+
     private int currentImage = 0;
 
     private void OnCollisionEnter2D(Collision2D other) 
@@ -28,7 +30,7 @@ public class Mortar : MonoBehaviour
         if(other.gameObject.GetComponent<Pestle>() && loaded)
         {
             Debug.Log("Hit!!");
-            if(currentImage<(sprites.Count-1))
+            if(currentImage<(sprites.Count-2))
             {
                 currentImage++;
                 spr.sprite = sprites[currentImage];
@@ -38,9 +40,10 @@ public class Mortar : MonoBehaviour
     }
 
     void OnMouseUp(){
-        if(currentImage >= (sprites.Count-1))
+        if(currentImage >= (sprites.Count-2))
         {
-            
+            spr.sprite = sprites[sprites.Count-1];
+            Instantiate(grinds,transform.position,transform.rotation);
         }
     }
 

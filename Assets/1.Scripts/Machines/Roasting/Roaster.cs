@@ -38,15 +38,21 @@ public class Roaster : MonoBehaviour
        switch (level) {
         case RoastLevel.LIGHT:
             Instantiate(lightRoasts[0],transform.position,transform.rotation);
+            Instantiate(lightRoasts[0],transform.position,transform.rotation);
+            Instantiate(lightRoasts[0],transform.position,transform.rotation);
             rb = lightRoasts[0].gameObject.GetComponent<Rigidbody2D>();
             rb.AddForce( new Vector2(0.5f,0.5f),ForceMode2D.Impulse);
             break;
         case RoastLevel.MEDIUM:
             Instantiate(mediumRoasts[0],transform.position,transform.rotation);
+            Instantiate(mediumRoasts[0],transform.position,transform.rotation);
+            Instantiate(mediumRoasts[0],transform.position,transform.rotation);
             rb = mediumRoasts[0].gameObject.GetComponent<Rigidbody2D>();
             rb.AddForce( new Vector2(0.5f,0.5f),ForceMode2D.Impulse);
             break;
         case RoastLevel.DARK:
+            Instantiate(darkRoasts[0],transform.position,transform.rotation);
+            Instantiate(darkRoasts[0],transform.position,transform.rotation);
             Instantiate(darkRoasts[0],transform.position,transform.rotation);
             rb = darkRoasts[0].gameObject.GetComponent<Rigidbody2D>();
             rb.AddForce( new Vector2(0.5f,0.5f),ForceMode2D.Impulse);

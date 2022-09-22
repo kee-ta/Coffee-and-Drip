@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: d45543e64ad813547b0170fd36266bea
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Kasih
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 662de15819f6be94da4c858c4f62a261, type: 3}
+  - {fileID: 12800000, guid: b287e1d2eb416b342a6d7a42f8428bdf, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
