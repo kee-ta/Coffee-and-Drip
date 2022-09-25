@@ -44,6 +44,7 @@ public class Mortar : MonoBehaviour
         {
             spr.sprite = sprites[sprites.Count-1];
             Instantiate(grinds,transform.position,transform.rotation);
+            currentImage = 0;
         }
     }
 

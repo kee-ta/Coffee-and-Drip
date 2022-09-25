@@ -197,7 +197,8 @@ public enum TweenAction{
     CANVAS_SCALE,
     CANVAS_SIZEDELTA,
     FOLLOW,
-    NONE
+    NONE,
+    IMAGE_COLOR
 }
 
 public enum LeanTweenType{
@@ -1239,6 +1240,10 @@ public class LeanTween : MonoBehaviour {
     public static LTDescr colorText(RectTransform rectTransform, Color to, float time){
         return pushNewTween(rectTransform.gameObject, new Vector3(1.0f, to.a, 0.0f), time, options().setTextColor().setPoint(new Vector3(to.r, to.g, to.b)));
     }
+    public static LTDescr imageColor(RectTransform rectTransform, Color to, float time)
+    {
+        return pushNewTween(rectTransform.gameObject, new Vector3(1.0f, to.a, 0.0f), time, options().setImageColor().setPoint(new Vector3(to.r, to.g, to.b)));
+    }   
     #endif
 
     /**

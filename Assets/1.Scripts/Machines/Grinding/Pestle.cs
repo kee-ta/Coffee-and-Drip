@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Pestle : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class Pestle : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         _cam = Camera.main;
+        SceneManager.LoadSceneAsync("MainUI",LoadSceneMode.Additive);
     }
 
     void Update()

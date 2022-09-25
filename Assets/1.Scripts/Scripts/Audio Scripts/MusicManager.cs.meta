@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: f367cd9806f35e2498769f001135a74d
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - sceneTranquil: {fileID: 8300000, guid: c41e719a6639e3443a9d721aaa6160b4, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

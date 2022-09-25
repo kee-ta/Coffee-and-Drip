@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class BrewingController : MonoBehaviour
 {
@@ -25,6 +26,9 @@ public class BrewingController : MonoBehaviour
     [SerializeField] float power;
     [SerializeField] float decay;
 
+
+    public static Action finishedBrewing;
+
     float spotPosition, spotSpeed, spotTimer, spotTargetPosition, brewPosition, brewVelocity, brewProgress;
 
     void FixedUpdate() {
@@ -38,8 +42,8 @@ public class BrewingController : MonoBehaviour
         spotTimer -= Time.deltaTime;
         if(spotTimer <0)
         {
-            spotTimer = Random.value * sweetSpotTimeRandomizer;
-            spotTargetPosition = Random.value;
+            spotTimer = UnityEngine.Random.value * sweetSpotTimeRandomizer;
+            spotTargetPosition = UnityEngine.Random.value;
         }
         spotPosition = Mathf.SmoothDamp(spotPosition,spotTargetPosition, ref spotSpeed, motion);
         sweetSpot.position = Vector3.Lerp(bottomBound.position,topBound.position,spotPosition);
@@ -79,6 +83,7 @@ public class BrewingController : MonoBehaviour
             if(brewProgress >= 1)
             {
                 Debug.Log("Done!");
+                finishedBrewing.Invoke();
             }
         }
         else
