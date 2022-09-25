@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7516671452091363641}
   - component: {fileID: 6491062729030253218}
   - component: {fileID: -2125157553927357957}
+  - component: {fileID: 5722628330053485601}
   m_Layer: 0
   m_Name: LightRoast
   m_TagString: Untagged
@@ -151,3 +152,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
   _speed: 10
+--- !u!114 &5722628330053485601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5777469154390085903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b740a433ef457834f9e7f3dd3d07c59b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  content: Light Roasted Bean
+  header: 
+  isActive: 1

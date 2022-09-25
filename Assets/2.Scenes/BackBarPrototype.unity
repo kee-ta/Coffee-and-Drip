@@ -2569,6 +2569,7 @@ GameObject:
   - component: {fileID: 490678006}
   - component: {fileID: 490678008}
   - component: {fileID: 490678009}
+  - component: {fileID: 490678010}
   m_Layer: 0
   m_Name: Roaster
   m_TagString: Untagged
@@ -2709,6 +2710,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &490678010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 490678003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b740a433ef457834f9e7f3dd3d07c59b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  content: Place Green Beans in Here!
+  header: A Roasting Machine
+  isActive: 1
 --- !u!1 &503202674
 GameObject:
   m_ObjectHideFlags: 0
@@ -7947,6 +7963,7 @@ GameObject:
   - component: {fileID: 1465409718}
   - component: {fileID: 1465409721}
   - component: {fileID: 1465409722}
+  - component: {fileID: 1465409723}
   m_Layer: 0
   m_Name: Brewer
   m_TagString: Untagged
@@ -8081,6 +8098,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxBrewSlots: 3
+--- !u!114 &1465409723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1465409717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b740a433ef457834f9e7f3dd3d07c59b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  content: Place Coffee Grounds in here!
+  header: A Brewing Machine
+  isActive: 1
 --- !u!1 &1484856308
 GameObject:
   m_ObjectHideFlags: 0
