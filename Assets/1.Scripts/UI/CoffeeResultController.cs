@@ -49,7 +49,7 @@ public class CoffeeResultController : MonoBehaviour
         BrewingController.finishedBrewing-=ShowCanvas;
     }
     void SetScore(float value){
-        scoreText.text = value.ToString();
+        scoreText.text = value.ToString("0");
     }
     // Update is called once per frame
     void Update()
@@ -68,6 +68,6 @@ public class CoffeeResultController : MonoBehaviour
     {
         scoreCanvas.gameObject.SetActive(true);
         LeanTween.move(holder,new Vector3(1002,547,0),0.5f);
-        LeanTween.value(gameObject,00,17,2f).setOnUpdate(SetScore);
+        LeanTween.value(gameObject,00,17,1f).setOnUpdate(SetScore);
     }
 }

@@ -28,6 +28,7 @@ public class Pestle : MonoBehaviour
         //transform.Rotate(0,0,0);
         rb.velocity = new Vector2(0.0f, 2.0f);
         rb.angularVelocity = 0.0f;
+        rb.rotation = 0f;
         rb.collisionDetectionMode = CollisionDetectionMode2D.Discrete;
         rb.isKinematic = true;
         _dragOffset = transform.position - GetMousePos();
