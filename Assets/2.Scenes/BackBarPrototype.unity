@@ -4651,7 +4651,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1989b16ba5d560241a450682bbf71598, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roastingGame: {fileID: 185785383}
 --- !u!1 &744608233
 GameObject:
   m_ObjectHideFlags: 0

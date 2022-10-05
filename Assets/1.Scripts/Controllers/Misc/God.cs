@@ -5,15 +5,13 @@ using System;
 
 public class God : SingletonController<God>
 {
-    public GameObject roastingGame;
-
     private void OnEnable() 
     {
-        Roaster.startRoastingGame += ActivateRoastingGame;
+
     }
     private void OnDisable() 
     {
-        Roaster.startRoastingGame -= ActivateRoastingGame;
+
     }
 
     private void Start() 
@@ -21,13 +19,4 @@ public class God : SingletonController<God>
 
     }
 
-    void ActivateRoastingGame()
-    {
-        roastingGame.SetActive(true);
-    }
-
-    void DeactivateRoastingGame()
-    {
-        roastingGame.SetActive(false);
-    }
 }

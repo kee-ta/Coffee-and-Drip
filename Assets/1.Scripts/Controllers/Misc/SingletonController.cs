@@ -23,9 +23,11 @@ public class SingletonController<T> : MonoBehaviour where T : Component
     {
        if (instance == null) {
          instance = this as T;
+         Debug.Log(gameObject.name + " Started!");
          DontDestroyOnLoad (this.gameObject);
     } else {
       Destroy (gameObject);
+      Debug.Log("Found more than one " + gameObject.name + " in the scene.");
     }
   }
   
