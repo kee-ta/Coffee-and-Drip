@@ -12,6 +12,8 @@ public class Mortar : MonoBehaviour
     [SerializeField]
     List<Sprite> sprites = new List<Sprite>();
 
+    bool isColliding = false;
+
     public GroundedCoffeeBeans grinds;
 
     private int currentImage = 0;
@@ -25,8 +27,9 @@ public class Mortar : MonoBehaviour
             spr.sprite = sprites[currentImage];
             mounted?.Invoke();
             loaded = true;
+            gameObject.GetComponent<Collider2D>().isTrigger = true;
         }
-
+        
         if(other.gameObject.GetComponent<Pestle>() && loaded)
         {
             Debug.Log("Hit!!");
@@ -39,13 +42,39 @@ public class Mortar : MonoBehaviour
         
     }
 
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if(isColliding) return;
+        isColliding = true;
+        if(col.gameObject.GetComponent<Pestle>() && loaded)
+        {
+            Debug.Log("Hit!!");
+            if(currentImage<(sprites.Count-2))
+            {
+                currentImage++;
+                spr.sprite = sprites[currentImage];
+            }
+        }
+        
+    }
+    void OnTriggerExit2D(Collider2D col){
+        Debug.Log("exit!!");
+        StartCoroutine(Reset());
+    } 
     void OnMouseUp(){
         if(currentImage >= (sprites.Count-2))
         {
             spr.sprite = sprites[sprites.Count-1];
             Instantiate(grinds,transform.position,transform.rotation);
             currentImage = 0;
+            gameObject.GetComponent<Collider2D>().isTrigger = false;
         }
+    }
+
+     IEnumerator Reset()
+    {
+        yield return new WaitForEndOfFrame();
+        isColliding = false;
     }
 
     // Start is called before the first frame update
