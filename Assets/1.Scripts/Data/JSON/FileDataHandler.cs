@@ -16,9 +16,9 @@ public class FileDataHandler
         this.fileName = dataFileName;
     }
 
-    public GameData Load()
+    public GameData Load(string profileId)
     {
-        string fullPath = Path.Combine(path,fileName);
+        string fullPath = Path.Combine(path,profileId,fileName);
         GameData loadedData = null;
         if(File.Exists(fullPath))
         {
@@ -44,7 +44,7 @@ public class FileDataHandler
         return loadedData;
     }
 
-    public void Save(GameData data) 
+    public void Save(GameData data,string profileId) 
     {
         string fullPath = Path.Combine(path,fileName);
         try
