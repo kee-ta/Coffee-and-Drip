@@ -1,6 +1,8 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
+using TMPro;
 
 public class AnimationHelper
 {
@@ -50,6 +52,62 @@ public class AnimationHelper
         OnEnd?.Invoke();
     }
 
+    public static IEnumerator FadeIn(CanvasGroup CanvasGroup, float Speed)
+    {
+        CanvasGroup.blocksRaycasts = true;
+        CanvasGroup.interactable = true;
+
+        float time = 0;
+        while (time < 1)
+        {
+            CanvasGroup.alpha = Mathf.Lerp(0, 1, time);
+            yield return null;
+            time += Time.deltaTime * Speed;
+        }
+        CanvasGroup.alpha = 1;
+    }
+
+    public static IEnumerator FadeIn(Image image, float endValue, float duration)
+    {
+        float elapsedTime = 0;
+        float startValue = image.color.a;
+        while (elapsedTime < duration)
+        {
+            elapsedTime += Time.deltaTime;
+            float newAlpha = Mathf.Lerp(startValue, endValue, elapsedTime / duration);
+            image.color = new Color(image.color.r, image.color.g, image.color.b, newAlpha);
+            yield return null;
+        }
+    }
+
+
+    public static IEnumerator FadeIn(TextMeshProUGUI text, float endValue, float duration)
+    {
+        float elapsedTime = 0;
+        float startValue = text.color.a;
+        while (elapsedTime < duration)
+        {
+            elapsedTime += Time.deltaTime;
+            float newAlpha = Mathf.Lerp(startValue, endValue, elapsedTime / duration);
+            text.color = new Color(text.color.r, text.color.g, text.color.b, newAlpha);
+            yield return null;
+        }
+    }
+
+    public static IEnumerator FadeIn(TextMeshProUGUI text, float endValue, float duration, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        float elapsedTime = 0;
+        float startValue = text.color.a;
+        while (elapsedTime < duration)
+        {
+            elapsedTime += Time.deltaTime;
+            float newAlpha = Mathf.Lerp(startValue, endValue, elapsedTime / duration);
+            text.color = new Color(text.color.r, text.color.g, text.color.b, newAlpha);
+            yield return null;
+        }
+    }
+
     public static IEnumerator FadeOut(CanvasGroup CanvasGroup, float Speed, UnityEvent OnEnd)
     {
         CanvasGroup.blocksRaycasts = false;
@@ -65,6 +123,22 @@ public class AnimationHelper
 
         CanvasGroup.alpha = 0;
         OnEnd?.Invoke();
+    }
+
+    public static IEnumerator FadeOut(CanvasGroup CanvasGroup, float Speed)
+    {
+        CanvasGroup.blocksRaycasts = false;
+        CanvasGroup.interactable = false;
+
+        float time = 0;
+        while (time < 1)
+        {
+            CanvasGroup.alpha = Mathf.Lerp(1, 0, time);
+            yield return null;
+            time += Time.deltaTime * Speed;
+        }
+
+        CanvasGroup.alpha = 0;
     }
 
     public static IEnumerator SlideIn(RectTransform Transform, Direction Direction, float Speed, UnityEvent OnEnd)
