@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class DialogueTrigger : MonoBehaviour
 {
-    [Header("Visual Cue")]
-    [SerializeField] private GameObject visualCue;
-
     [Header("Ink JSON")]
     [SerializeField] private TextAsset inkJSON;
 
@@ -15,22 +12,17 @@ public class DialogueTrigger : MonoBehaviour
     private void Awake() 
     {
         playerInRange = false;
-        visualCue.SetActive(false);
     }
 
     private void Update() 
     {
-        if (playerInRange && !DialogueManager.GetInstance().dialogueIsPlaying) 
+        if (Input.anyKeyDown && !DialogueManager.GetInstance().dialogueIsPlaying) 
         {
-            visualCue.SetActive(true);
-            if (InputManager.I.GetInteractPressed()) 
-            {
                 DialogueManager.GetInstance().EnterDialogueMode(inkJSON);
-            }
         }
         else 
         {
-            visualCue.SetActive(false);
+
         }
     }
 

@@ -124,7 +124,7 @@ public class DialogueManager : MonoBehaviour
         // NOTE: The 'currentStory.currentChoiecs.Count == 0' part was to fix a bug after the Youtube video was made
         if (canContinueToNextLine 
             && currentStory.currentChoices.Count == 0 
-            && InputManager.I.GetSubmitPressed())
+            && Input.anyKeyDown)
         {
             ContinueStory();
         }
@@ -197,7 +197,7 @@ public class DialogueManager : MonoBehaviour
         foreach (char letter in line.ToCharArray())
         {
             // if the submit button is pressed, finish up displaying the line right away
-            if (InputManager.I.GetSubmitPressed()) 
+            if (Input.anyKeyDown) 
             {
                 dialogueText.maxVisibleCharacters = line.Length;
                 break;
@@ -352,7 +352,7 @@ public class DialogueManager : MonoBehaviour
             choices[i].gameObject.SetActive(false);
         }
 
-        StartCoroutine(SelectFirstChoice());
+        //StartCoroutine(SelectFirstChoice());
     }
 
     private IEnumerator SelectFirstChoice() 
@@ -370,7 +370,7 @@ public class DialogueManager : MonoBehaviour
         {
             currentStory.ChooseChoiceIndex(choiceIndex);
             // NOTE: The below two lines were added to fix a bug after the Youtube video was made
-            InputManager.I.RegisterSubmitPressed(); // this is specific to my InputManager script
+            //InputManager.GetInstance().RegisterSubmitPressed(); // this is specific to my InputManager script
             ContinueStory();
         }
     }
