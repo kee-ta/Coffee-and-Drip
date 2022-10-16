@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/2.Scenes/BackBarPrototype.unity
     guid: e26eb699a5256eb4e98e2982bae2f25d
   - enabled: 1
-    path: Assets/2.Scenes/MainUI.unity
+    path: Assets/2.Scenes/Game.unity
     guid: e83d1b630685789429b6409144e22ab0
   m_configObjects: {}
