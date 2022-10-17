@@ -4,6 +4,24 @@ public enum RoastLevel
     MEDIUM,
     DARK
 }
+
+public enum QuestType
+{
+    NULL,
+    SPECIAL,
+    SWEET,
+    ACID,
+    AROMA,
+    BODY,
+    FLAVOR_BITTER,
+    FLAVOR_BITTERSWEET,
+    FLAVOR_FRUITY,
+    FLAVOR_CHOCOLATE,
+    FLAVOR_EARTHY,
+    FLAVOR_NUTTY,
+    FLAVOR_SOUR
+}
+
 public class RoastModifier
 {
     public int sweetMod;
@@ -24,6 +42,21 @@ public class RoastModifier
         this.aromaMod = aromaMod;
         this.flavorMod = flavorMod;
     }
+}
+
+public class QuestCondition
+{
+    public QuestType type;
+    public int value;
+
+    public QuestCondition(QuestType type, int value)
+    {
+        this.type = type;
+        this.value = value;
+    }
+    public QuestType Type => type;
+    public int Value => value;
+
 }
 public enum Quality
 {

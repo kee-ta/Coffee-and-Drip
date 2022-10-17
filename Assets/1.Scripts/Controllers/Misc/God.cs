@@ -7,21 +7,36 @@ using UnityEditor;
 
 public class God : SingletonController<God>
 {
-    [Header ("List of Scenes")]
+    [Header("List of Scenes")]
     [SerializeField] public List<SceneAsset> allScenes = new List<SceneAsset>();
 
-    private void OnEnable() 
+    public List<Quest> allQuests;
+
+    public void GiveQuest()
+    {
+        List<QuestCondition> temp = new List<QuestCondition>();
+        temp.Add(new QuestCondition(QuestType.AROMA, 2));
+        temp.Add(new QuestCondition(QuestType.ACID, 5));
+        allQuests.Add(new Quest(1, "testQuest", "desc", temp));
+        PlayerController.I.currentQuest = allQuests[0];
+    }
+
+    private void OnEnable()
     {
 
     }
-    private void OnDisable() 
+
+    private void OnDisable()
     {
 
     }
 
-    private void Start() 
+    private void Start()
+    {
+        GiveQuest();
+    }
+    private void Update()
     {
 
     }
-
 }
