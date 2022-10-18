@@ -9,6 +9,8 @@ public class Quest
     public List<QuestCondition> clearConditions = new List<QuestCondition>();
     public string name;
     public string description;
+
+    public bool isCompleted= false;
     
     public Quest(int id, string name, string description, QuestCondition clearCondition)
     {

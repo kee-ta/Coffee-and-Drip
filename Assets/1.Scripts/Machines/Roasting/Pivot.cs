@@ -17,7 +17,7 @@ public class Pivot : MonoBehaviour
         Vector3 differnce = Camera.main.ScreenToWorldPoint(Input.mousePosition)-transform.position;
         differnce.Normalize();
         float rotationZ = Mathf.Atan2(differnce.y,differnce.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0f,0f,rotationZ);
+        transform.rotation = Quaternion.Euler(0f,0f,rotationZ-90);
         }
     }
 
