@@ -4,11 +4,7 @@ using UnityEngine;
 
 public class Pivot : MonoBehaviour
 {
-    [SerializeField]
-    public GameObject origin;
-
-    private bool canMove = false;
-
+    public bool canMove = false;
 
     private void FixedUpdate() 
     {

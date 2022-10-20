@@ -3,25 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class Roaster : MonoBehaviour
+public class Roaster : Machine
 {
+    [SerializeField] private GameObject funnel;
+    private Collider2D funnelCol;
+
+    private void Start()
+    {
+        funnelCol = funnel.GetComponent<Collider2D>();
+    }
+
+
+    #region Temp
+    /*
     public RawCoffeeBeans loadedBeans;
     public static Action startRoastingGame;
-
+    
     public List<RoastedCoffeeBeans> lightRoasts = new List<RoastedCoffeeBeans>();
     public List<RoastedCoffeeBeans> mediumRoasts = new List<RoastedCoffeeBeans>();
     public List<RoastedCoffeeBeans> darkRoasts = new List<RoastedCoffeeBeans>();
-
+    
     private void OnCollisionEnter2D(Collision2D other) 
     {
-        if(other.gameObject.GetComponent<RawCoffeeBeans>())
-        {
-            loadedBeans = other.gameObject.GetComponent<RawCoffeeBeans>();
-            Destroy(other.gameObject);
-            Debug.Log(loadedBeans.GetName());
-            startRoastingGame?.Invoke();
-            Debug.Log("Acidity is" +loadedBeans.rawStats.acidity.ToString());
-        }
+
     }
     private void OnEnable() 
     {
@@ -34,6 +38,7 @@ public class Roaster : MonoBehaviour
     }
     private void SpawnRoastedCoffee(RoastLevel level)
     {
+        /*
         Rigidbody2D rb;
        switch (level) {
         case RoastLevel.LIGHT:
@@ -61,6 +66,7 @@ public class Roaster : MonoBehaviour
             //Do Nothing
             break;
        }
+       
     }
 
     // Start is called before the first frame update
@@ -74,6 +80,7 @@ public class Roaster : MonoBehaviour
     {
         
     }
-
-
+    
+    */
+    #endregion
 }

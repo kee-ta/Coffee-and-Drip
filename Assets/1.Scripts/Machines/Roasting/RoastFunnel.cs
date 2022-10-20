@@ -1,11 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 
-public class Machine : MonoBehaviour
+public class RoastFunnel : MonoBehaviour
 {
-    public Action<MachineType> machineInteracted;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,5 +14,13 @@ public class Machine : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void OnCollisionEnter2D(Collision2D other) 
+    {
+        if(other.gameObject.GetComponent<RawCoffeeBeans>())
+        {
+            
+        }
     }
 }
