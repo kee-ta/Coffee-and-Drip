@@ -1,4 +1,4 @@
-Hello there! #speaker:Dr. Green #portrait:dr_green_neutral #layout:left #audio:animal_crossing_mid
+Hello there! #speaker:Dr. Green #portrait:dr_green_neutral #layout:left #audio:default
 -> main
 
 === main ===

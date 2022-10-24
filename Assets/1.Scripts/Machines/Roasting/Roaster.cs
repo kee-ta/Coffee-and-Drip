@@ -6,13 +6,33 @@ using System;
 public class Roaster : Machine
 {
     [SerializeField] private GameObject funnel;
+    [SerializeField] private GameObject body;
+
+    public bool loaded= false;
+    
+    public RawCoffeeBeans rawBeans{get;set;}
+
     private Collider2D funnelCol;
+    public RoasterBody roastBody;
 
     private void Start()
     {
         funnelCol = funnel.GetComponent<Collider2D>();
+        roastBody = body.GetComponent<RoasterBody>();
     }
 
+    private void StartRoasting ()
+    {
+        if(roastBody.fire.isPlaying && loaded) 
+        {
+            
+        }    
+    }
+
+    public void SetLoadedRaw (RawCoffeeBeans input) 
+    {
+        rawBeans = input;
+    }
 
     #region Temp
     /*

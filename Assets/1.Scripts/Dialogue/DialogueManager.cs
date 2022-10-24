@@ -121,7 +121,6 @@ public class DialogueManager : MonoBehaviour
         }
 
         // handle continuing to the next line in the dialogue when submit is pressed
-        // NOTE: The 'currentStory.currentChoiecs.Count == 0' part was to fix a bug after the Youtube video was made
         if (canContinueToNextLine 
             && currentStory.currentChoices.Count == 0 
             && Input.anyKeyDown)
@@ -173,6 +172,7 @@ public class DialogueManager : MonoBehaviour
             // handle tags
             HandleTags(currentStory.currentTags);
             displayLineCoroutine = StartCoroutine(DisplayLine(nextLine));
+            Debug.Log("Called the Displayline routine!");
         }
         else 
         {
@@ -197,7 +197,7 @@ public class DialogueManager : MonoBehaviour
         foreach (char letter in line.ToCharArray())
         {
             // if the submit button is pressed, finish up displaying the line right away
-            if (Input.anyKeyDown) 
+            if (Input.GetKeyDown(KeyCode.Mouse0)) 
             {
                 dialogueText.maxVisibleCharacters = line.Length;
                 break;

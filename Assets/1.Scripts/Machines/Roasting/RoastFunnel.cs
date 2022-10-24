@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RoastFunnel : MonoBehaviour
 {
+    [SerializeField] private Roaster roaster;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,9 +19,10 @@ public class RoastFunnel : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other) 
     {
-        if(other.gameObject.GetComponent<RawCoffeeBeans>())
+        if(other.gameObject.GetComponent<RawCoffeeBeans>() && !roaster.loaded)
         {
-            
+            roaster.SetLoadedRaw(other.gameObject.GetComponent<RawCoffeeBeans>());
+            Destroy(other.gameObject);
         }
     }
 }

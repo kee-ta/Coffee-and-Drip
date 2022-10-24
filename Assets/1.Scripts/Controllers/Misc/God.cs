@@ -11,7 +11,7 @@ public class God : SingletonController<God>
     [SerializeField] public List<SceneAsset> allScenes = new List<SceneAsset>();
 
     public List<Quest> allQuests;
-
+    public List<GreenBeanData> allRawBeans = new List<GreenBeanData>();
     public void GiveQuest()
     {
         List<QuestCondition> temp = new List<QuestCondition>();
@@ -34,6 +34,7 @@ public class God : SingletonController<God>
     private void Start()
     {
         GiveQuest();
+        allRawBeans.Add(new GreenBeanData());
     }
     private void Update()
     {
