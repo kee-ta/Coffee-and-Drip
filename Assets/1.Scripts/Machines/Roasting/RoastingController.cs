@@ -10,23 +10,39 @@ public class RoastingController : MonoBehaviour
     public static Action<RoastLevel> RoastingEnded;
     public RoastLevel currentRoastLevel;
 
+    [SerializeField] Image gauge;
     [SerializeField] Image lightGauge, mediumGauge, darkGauge;
     [SerializeField] Button roast, end;
     [SerializeField] int progress= 0;
     private void OnEnable() 
     {
         RoastZoneRotate.roastTick +=AddProgress;
+        Roaster.startRoastingGame +=StartGame;
     }
 
     private void OnDisable() 
     {
         RoastZoneRotate.roastTick -=AddProgress;
+        Roaster.startRoastingGame -=StartGame;
         lightGauge.fillAmount = 0;
         mediumGauge.fillAmount = 0;
         darkGauge.fillAmount = 0;
         roast.gameObject.SetActive(true);
         end.gameObject.SetActive(false);
     }
+
+    private void StartGame () 
+    {
+        gauge.gameObject.SetActive(true);
+        roast.gameObject.SetActive(true);
+    }
+
+    private void EndGame () 
+    {
+        gauge.gameObject.SetActive(false);
+        end.gameObject.SetActive(false);
+    }
+
     public void AddProgress()
     {
         progress++;

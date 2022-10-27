@@ -12,15 +12,17 @@ public class Mortar : MonoBehaviour
     [SerializeField]
     List<Sprite> sprites = new List<Sprite>();
 
+    [SerializeField] private SpriteRenderer frontMortar,backMortar;
+
     bool isColliding = false;
 
     public GroundedCoffeeBeans grinds;
 
     private int currentImage = 0;
 
-    private void OnCollisionEnter2D(Collision2D other) 
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        if(other.gameObject.GetComponent<RoastedCoffeeBeans>())
+        if (other.gameObject.GetComponent<RoastedCoffeeBeans>())
         {
             Destroy(other.gameObject);
             currentImage++;
@@ -29,49 +31,77 @@ public class Mortar : MonoBehaviour
             loaded = true;
             gameObject.GetComponent<Collider2D>().isTrigger = true;
         }
-        
-        if(other.gameObject.GetComponent<Pestle>() && loaded)
+
+        if (other.gameObject.GetComponent<Pestle>() && loaded)
         {
+            FadeCover();
             Debug.Log("Hit!!");
-            if(currentImage<(sprites.Count-2))
+            if (currentImage < (sprites.Count - 2))
             {
                 currentImage++;
                 spr.sprite = sprites[currentImage];
             }
         }
-        
+        FadeCover();
+        Debug.Log("Mortar Trigger");
     }
+
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if(isColliding) return;
+        if (isColliding) return;
         isColliding = true;
-        if(col.gameObject.GetComponent<Pestle>() && loaded)
+        if (col.gameObject.GetComponent<Pestle>() && loaded)
         {
             Debug.Log("Hit!!");
-            if(currentImage<(sprites.Count-2))
+            if (currentImage < (sprites.Count - 2))
             {
                 currentImage++;
                 spr.sprite = sprites[currentImage];
             }
         }
-        
+        FadeCover();
+
     }
-    void OnTriggerExit2D(Collider2D col){
+    void OnTriggerExit2D(Collider2D col)
+    {
         Debug.Log("exit!!");
         StartCoroutine(Reset());
-    } 
-    void OnMouseUp(){
-        if(currentImage >= (sprites.Count-2))
+        FadeCover(false);
+
+    }
+    void OnMouseUp()
+    {
+        /*
+        if (currentImage >= (sprites.Count - 2))
         {
-            spr.sprite = sprites[sprites.Count-1];
-            Instantiate(grinds,transform.position,transform.rotation);
+            spr.sprite = sprites[sprites.Count - 1];
+            Instantiate(grinds, transform.position, transform.rotation);
             currentImage = 0;
             gameObject.GetComponent<Collider2D>().isTrigger = false;
         }
+        */
+        FadeCover(false);
     }
 
-     IEnumerator Reset()
+    private void FadeCover (bool doFade = true) 
+    {
+        Color temp = frontMortar.color;
+
+        if(doFade)
+        temp.a = 0.5f;
+        else
+        temp.a = 1f;
+
+        frontMortar.color = temp; 
+    }
+
+    private void OnMouseDown() 
+    {
+        FadeCover(true);
+    }
+
+    IEnumerator Reset()
     {
         yield return new WaitForEndOfFrame();
         isColliding = false;
@@ -86,6 +116,6 @@ public class Mortar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

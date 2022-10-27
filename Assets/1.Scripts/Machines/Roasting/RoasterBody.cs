@@ -7,10 +7,12 @@ public class RoasterBody : MonoBehaviour
     [SerializeField] public ParticleSystem fire;
     private void OnMouseDown()
     {
+        /*
         if (!fire.isPlaying)
             fire.Play();
         else
             fire.Stop();
+            */
     }
     // Start is called before the first frame update
     void Start()

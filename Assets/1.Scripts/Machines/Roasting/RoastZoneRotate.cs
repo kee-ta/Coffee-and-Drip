@@ -12,13 +12,14 @@ public class RoastZoneRotate : MonoBehaviour
     private float _angle;
     private float timer = 0.0f;
     private float waitTime = .6f;
-    private bool started = false;
+    public bool started = false;
+    [SerializeField] public ParticleSystem trail;
 
     public static Action roastTick;
 
     private void DirectionChange()
     {
-       RotateSpeed = UnityEngine.Random.Range(-1f,1f);
+        RotateSpeed = UnityEngine.Random.Range(-1f, 1f);
     }
 
     private void StartTurning()
@@ -30,24 +31,51 @@ public class RoastZoneRotate : MonoBehaviour
     {
         started = false;
     }
-    
-    private void OnEnable() 
+
+    private void OnEnable()
     {
         RoastingController.RoastingStarted += StartTurning;
     }
 
-    private void OnDisable() 
+    private void OnDisable()
     {
         RoastingController.RoastingStarted -= StartTurning;
+        Reset();
+    }
+
+    private void Reset()
+    {
+        started = false;
+        trail.Stop();
+        gameObject.transform.position = new Vector3(-0.94f, -1.97f, -1f);
     }
 
     void OnTriggerStay2D(Collider2D collision)
     {
-        if (timer > waitTime)
+        if (collision.gameObject.GetComponent<Pivot>())
         {
-            timer = timer - waitTime;
-            roastTick?.Invoke();
+            if (timer > waitTime)
+            {
+                timer = timer - waitTime;
+                roastTick?.Invoke();
+            }
         }
+
+    }
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.GetComponent<Pivot>())
+        {
+            trail.Play();
+        }
+    }
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.GetComponent<Pivot>())
+        {
+            trail.Stop();
+        }
+
     }
     // Start is called before the first frame update
     void Start()
@@ -59,12 +87,13 @@ public class RoastZoneRotate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(started){
-        timer += Time.deltaTime;
-        _angle += RotateSpeed * Time.deltaTime;
- 
-        var offset = new Vector2(Mathf.Sin(_angle), Mathf.Cos(_angle)) * Radius;
-        transform.position = _centre + offset;
+        if (started)
+        {
+            timer += Time.deltaTime;
+            _angle += RotateSpeed * Time.deltaTime;
+
+            var offset = new Vector2(Mathf.Sin(_angle), Mathf.Cos(_angle)) * Radius;
+            transform.position = _centre + offset;
         }
     }
 }
