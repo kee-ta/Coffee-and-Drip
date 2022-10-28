@@ -123,16 +123,17 @@ public class PlayerController : SingletonController<PlayerController>
                     break;
             }
         }
-        return checks.All( x => x == true);
+        return checks.All(x => x == true);
 
     }
 
     // Update is called once per frame
     private void Update()
     {
-        if(Input.GetMouseButtonDown(0)){
-            RoastCoffeeData temp = new RoastCoffeeData(0,5,2, Flavor.BITTER);
-            if(EvaluateQuest(temp))
+        if (Input.GetMouseButtonDown(0))
+        {
+            RoastCoffeeData temp = new RoastCoffeeData(0, 5, 2, Flavor.BITTER);
+            if (EvaluateQuest(temp))
             {
                 Debug.Log("Passed!");
             }
@@ -141,5 +142,48 @@ public class PlayerController : SingletonController<PlayerController>
                 Debug.Log("failed");
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            StartCoroutine(MoveRight());
+        }
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            StartCoroutine(MoveLeft());
+        }
+    }
+
+    private void FixedUpdate()
+    {
+
+    }
+
+    private void Move()
+    {
+
+
+    }
+
+    private IEnumerator MoveRight()
+    {
+        float time = 0;
+        while (Camera.main.transform.position != new Vector3(19.5f, 0.0f, -10.0f))
+        {
+            Camera.main.transform.position = Vector3.Lerp(new Vector3(0.0f, 0.0f, -10.0f), new Vector3(19.5f, 0.0f, -10.0f), time * 1f);
+            time += Time.deltaTime;
+            yield return null;
+        }
+    }
+
+    private IEnumerator MoveLeft()
+    {
+        float time = 0;
+        while (Camera.main.transform.position != new Vector3(0.0f, 0.0f, -10.0f))
+        {
+            Camera.main.transform.position = Vector3.Lerp(new Vector3(19.5f, 0.0f, -10.0f), new Vector3(0.0f, 0.0f, -10.0f), time * 1f);
+            time += Time.deltaTime;
+            yield return null;
+        }
+
     }
 }

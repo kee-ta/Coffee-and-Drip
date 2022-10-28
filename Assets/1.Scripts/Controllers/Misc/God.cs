@@ -19,6 +19,7 @@ public class God : SingletonController<God>
         temp.Add(new QuestCondition(QuestType.ACID, 5));
         allQuests.Add(new Quest(1, "testQuest", "desc", temp));
         PlayerController.I.currentQuest = allQuests[0];
+        Debug.Log(PlayerController.I.currentQuest.description);
     }
 
     private void OnEnable()

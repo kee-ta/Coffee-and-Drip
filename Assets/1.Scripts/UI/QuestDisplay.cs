@@ -16,18 +16,13 @@ public class QuestDisplay : MonoBehaviour
     {
         trans = gameObject.GetComponent<RectTransform>();
         text = gameObject.GetComponentInChildren<TextMeshProUGUI>();
+        //Refresh();
     }
 
     public void SetText(string x)
     {
         text.text = x;
     }
-
-    public void Display()
-    {
-        StartCoroutine(AnimateIn());
-    }
-
 
     private IEnumerator AnimateIn()
     {
@@ -38,7 +33,20 @@ public class QuestDisplay : MonoBehaviour
             time += Time.deltaTime;
             yield return null;
         }
-        
+
+    }
+
+    private IEnumerator AnimateOutThenIn()
+    {
+        trans.anchoredPosition3D = shownPos;
+        float time = 0;
+        while (trans.anchoredPosition3D != readyPos)
+        {
+            trans.anchoredPosition3D = Vector3.Lerp(shownPos, readyPos, time * 1.5f);
+            time += Time.deltaTime;
+            yield return null;
+        }
+         yield return StartCoroutine(AnimateIn()); 
     }
 
     private IEnumerator AnimateOut()
@@ -52,6 +60,17 @@ public class QuestDisplay : MonoBehaviour
         }
 
     }
+    public void Refresh()
+    {
+        text.text = PlayerController.I.currentQuest.description;
+        Debug.Log(PlayerController.I.currentQuest.description + " From QD");
+        StartCoroutine(AnimateOutThenIn());
+    }
+    public void Display()
+    {
+        StartCoroutine(AnimateIn());
+    }
+
     public void Reset()
     {
         StartCoroutine(AnimateOut());
@@ -61,6 +80,9 @@ public class QuestDisplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if(Input.anyKeyDown)
+        {
+            Refresh();
+        }
     }
 }
