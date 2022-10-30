@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class Packer : MonoBehaviour
 {   
@@ -12,6 +13,8 @@ public class Packer : MonoBehaviour
     private GameObject thingy;
 
     public bool loaded= false;
+
+    public static Action<GroundCoffeeData> spawnSack;
 
     private void OnCollisionEnter2D(Collision2D other) 
     {
@@ -33,6 +36,7 @@ public class Packer : MonoBehaviour
         Rigidbody2D rb;
         rb = thingy.GetComponent<Rigidbody2D>();
         rb.AddForce(new Vector2(10f, 10f), ForceMode2D.Impulse);
+        spawnSack?.Invoke(thingy.GetComponent<GroundedCoffeeBeans>().grind);
         Destroy(thingy,1.1f);
         packBtn.gameObject.SetActive(false);
         loaded = false;

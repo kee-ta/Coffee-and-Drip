@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GroundedCoffeeBeans : MonoBehaviour
 {
-    GroundCoffeeData grind = new GroundCoffeeData();
+    public GroundCoffeeData grind = new GroundCoffeeData();
 
     private string beanName;
     // Start is called before the first frame update
