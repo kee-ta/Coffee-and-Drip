@@ -73,7 +73,8 @@ public class RoastingController : MonoBehaviour
     {
         RoastingEnded?.Invoke(currentRoastLevel);
         RoastingButtonSwitch();
-        this.gameObject.SetActive(false);
+        end.gameObject.SetActive(false);
+        gauge.gameObject.SetActive(false);
     }
 
     public void RoastingButtonSwitch()

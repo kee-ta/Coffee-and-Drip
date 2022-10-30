@@ -14,6 +14,8 @@ public class RawCoffeeBeans : MonoBehaviour
     {
         sweetness =0; acidity=0; aroma = 0;
         beanName = "Magic Bean";
+        //gameObject.GetComponent<SpriteRenderer>().sprite = AssetManager.I.rawBeans;
+        //gameObject.GetComponent<SpriteRenderer>().sortingOrder = 5;
     }
 
     public string GetName(){

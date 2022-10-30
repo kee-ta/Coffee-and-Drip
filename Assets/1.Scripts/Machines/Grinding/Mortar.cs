@@ -5,14 +5,16 @@ using System;
 
 public class Mortar : MonoBehaviour
 {
-    private SpriteRenderer spr;
     public static Action grinded;
     public static Action mounted;
     public bool loaded = false;
-    [SerializeField]
-    List<Sprite> sprites = new List<Sprite>();
+    [SerializeField] List<Sprite> lightRoast = new List<Sprite>();
+    [SerializeField] List<Sprite> medRoast = new List<Sprite>();
+    [SerializeField] List<Sprite> darkRoast = new List<Sprite>();
+    [SerializeField] List<Sprite> groundedSprites = new List<Sprite>();
+    [SerializeField] private SpriteRenderer frontMortar, backMortar;
 
-    [SerializeField] private SpriteRenderer frontMortar,backMortar;
+    [SerializeField] private SpriteRenderer spr;
 
     bool isColliding = false;
 
@@ -25,8 +27,6 @@ public class Mortar : MonoBehaviour
         if (other.gameObject.GetComponent<RoastedCoffeeBeans>())
         {
             Destroy(other.gameObject);
-            currentImage++;
-            spr.sprite = sprites[currentImage];
             mounted?.Invoke();
             loaded = true;
             gameObject.GetComponent<Collider2D>().isTrigger = true;
@@ -36,10 +36,10 @@ public class Mortar : MonoBehaviour
         {
             FadeCover();
             Debug.Log("Hit!!");
-            if (currentImage < (sprites.Count - 2))
+            if (currentImage < (lightRoast.Count - 2))
             {
                 currentImage++;
-                spr.sprite = sprites[currentImage];
+                spr.sprite = lightRoast[currentImage];
             }
         }
         FadeCover();
@@ -51,18 +51,69 @@ public class Mortar : MonoBehaviour
     {
         if (isColliding) return;
         isColliding = true;
-        if (col.gameObject.GetComponent<Pestle>() && loaded)
+        if (col.gameObject.GetComponent<RoastedCoffeeBeans>())
         {
-            Debug.Log("Hit!!");
-            if (currentImage < (sprites.Count - 2))
+            Destroy(col.gameObject);
+            mounted?.Invoke();
+            loaded = true;
+            gameObject.GetComponent<Collider2D>().isTrigger = true;
+            switch (col.gameObject.GetComponent<RoastedCoffeeBeans>().roast.roastLevel)
             {
-                currentImage++;
-                spr.sprite = sprites[currentImage];
+                case RoastLevel.LIGHT:
+                    SetSprite(col.gameObject.GetComponent<RoastedCoffeeBeans>().roast.roastLevel);
+                    break;
+                case RoastLevel.MEDIUM:
+                    SetSprite(col.gameObject.GetComponent<RoastedCoffeeBeans>().roast.roastLevel);
+                    break;
+                case RoastLevel.DARK:
+                    SetSprite(col.gameObject.GetComponent<RoastedCoffeeBeans>().roast.roastLevel);
+                    break;
+                default:
+
+                    break;
             }
         }
         FadeCover();
-
     }
+
+    void SetSprite(RoastLevel level)
+    {
+        switch (level)
+        {
+            case RoastLevel.LIGHT:
+                spr.sprite = lightRoast[0];
+                break;
+            case RoastLevel.MEDIUM:
+                spr.sprite = medRoast[0];
+                break;
+            case RoastLevel.DARK:
+                spr.sprite = darkRoast[0];
+                break;
+            default:
+
+                break;
+        }
+    }
+
+    void SetSprite(RoastLevel level = RoastLevel.LIGHT, int stage = 0)
+    {
+        switch (level)
+        {
+            case RoastLevel.LIGHT:
+                spr.sprite = lightRoast[stage];
+                break;
+            case RoastLevel.MEDIUM:
+                spr.sprite = medRoast[stage];
+                break;
+            case RoastLevel.DARK:
+                spr.sprite = darkRoast[stage];
+                break;
+            default:
+
+                break;
+        }
+    }
+
     void OnTriggerExit2D(Collider2D col)
     {
         Debug.Log("exit!!");
@@ -84,19 +135,19 @@ public class Mortar : MonoBehaviour
         FadeCover(false);
     }
 
-    private void FadeCover (bool doFade = true) 
+    private void FadeCover(bool doFade = true)
     {
         Color temp = frontMortar.color;
 
-        if(doFade)
-        temp.a = 0.5f;
+        if (doFade)
+            temp.a = 0.3f;
         else
-        temp.a = 1f;
+            temp.a = 1f;
 
-        frontMortar.color = temp; 
+        frontMortar.color = temp;
     }
 
-    private void OnMouseDown() 
+    private void OnMouseDown()
     {
         FadeCover(true);
     }
@@ -110,7 +161,7 @@ public class Mortar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        spr = this.GetComponent<SpriteRenderer>();
+
     }
 
     // Update is called once per frame
