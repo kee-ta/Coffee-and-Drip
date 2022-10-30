@@ -25,8 +25,8 @@ public class Mortar : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        Debug.Log("Mortar Trigger2DEnter");
-        Debug.Log("Loaded is" + loaded.ToString());
+        //Debug.Log("Mortar Trigger2DEnter");
+        //Debug.Log("Loaded is" + loaded.ToString());
         if (isColliding) return;
         isColliding = true;
         if (col.gameObject.GetComponent<RoastedCoffeeBeans>() && !loaded)

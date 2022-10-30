@@ -8,31 +8,44 @@ public class Dragger : MonoBehaviour
     private Camera _cam;
     public Rigidbody2D rb;
 
+    public bool canDrag = true;
+
     [SerializeField] private float _speed = 10;
 
-    void Awake() {
+    void Awake()
+    {
         rb = GetComponent<Rigidbody2D>();
         _cam = Camera.main;
     }
 
-    void OnMouseDown() {
-        rb.velocity = new Vector2(0.0f, 2.0f);
-        rb.angularVelocity = 0.0f;
-        rb.collisionDetectionMode = CollisionDetectionMode2D.Discrete;
-        rb.isKinematic = true;
-        _dragOffset = transform.position - GetMousePos();
+    void OnMouseDown()
+    {
+        if (canDrag)
+        {
+            rb.velocity = new Vector2(0.0f, 2.0f);
+            rb.angularVelocity = 0.0f;
+            rb.collisionDetectionMode = CollisionDetectionMode2D.Discrete;
+            rb.isKinematic = true;
+            _dragOffset = transform.position - GetMousePos();
+        }
     }
 
-    void OnMouseDrag() { 
-        transform.position = Vector3.MoveTowards(transform.position, GetMousePos() + _dragOffset, _speed * Time.deltaTime);
+    void OnMouseDrag()
+    {
+        if (canDrag)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, GetMousePos() + _dragOffset, _speed * Time.deltaTime);
+        }
     }
 
-    void OnMouseUp(){
+    void OnMouseUp()
+    {
         rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
         rb.isKinematic = false;
     }
 
-    Vector3 GetMousePos() {
+    Vector3 GetMousePos()
+    {
         var mousePos = _cam.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = 0;
         return mousePos;

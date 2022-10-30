@@ -31,6 +31,14 @@ public class RoastingController : MonoBehaviour
         end.gameObject.SetActive(false);
     }
 
+
+    private void ResetGauge () 
+    {
+        lightGauge.fillAmount = 0;
+        mediumGauge.fillAmount = 0;
+        darkGauge.fillAmount = 0;
+    }
+
     private void StartGame () 
     {
         gauge.gameObject.SetActive(true);
@@ -39,6 +47,7 @@ public class RoastingController : MonoBehaviour
 
     private void EndGame () 
     {
+        
         gauge.gameObject.SetActive(false);
         end.gameObject.SetActive(false);
     }
@@ -73,6 +82,7 @@ public class RoastingController : MonoBehaviour
     {
         RoastingEnded?.Invoke(currentRoastLevel);
         RoastingButtonSwitch();
+        ResetGauge();
         end.gameObject.SetActive(false);
         gauge.gameObject.SetActive(false);
     }

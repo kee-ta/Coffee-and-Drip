@@ -71,42 +71,42 @@ public class Roaster : Machine
         switch (level)
         {
             case RoastLevel.LIGHT:
-                for (int x = 0; x < 3; x++)
+                for (int x = 0; x < 1; x++)
                 {
                     StartCoroutine((WaitABit()));
-                    foo = Instantiate(lightRoasts[0], new Vector3(transform.position.x + UnityEngine.Random.Range(1, 6),
-                                                                  transform.position.x + UnityEngine.Random.Range(1, 6),
+                    foo = Instantiate(lightRoasts[0], new Vector3(transform.position.x + UnityEngine.Random.Range(2, 3),
+                                                                  transform.position.y + UnityEngine.Random.Range(2, 3),
                                                                   transform.position.z), transform.rotation).gameObject;
                     temp = foo.GetComponent<RoastedCoffeeBeans>().roast;
                     temp.roastLevel = RoastLevel.LIGHT;
                     rb = foo.GetComponent<Rigidbody2D>();
-                    rb.AddForce(new Vector2(1f, 1f), ForceMode2D.Impulse);
+                    rb.AddForce(new Vector2(2f, 2f), ForceMode2D.Impulse);
                 }
                 break;
             case RoastLevel.MEDIUM:
-                for (int x = 0; x < 3; x++)
+                for (int x = 0; x < 1; x++)
                 {
                     StartCoroutine((WaitABit()));
-                    foo = Instantiate(mediumRoasts[0], new Vector3(transform.position.x + UnityEngine.Random.Range(1, 6),
-                                                                  transform.position.x + UnityEngine.Random.Range(1, 6),
+                    foo = Instantiate(mediumRoasts[0], new Vector3(transform.position.x + UnityEngine.Random.Range(2, 3),
+                                                                  transform.position.y + UnityEngine.Random.Range(2, 3),
                                                                   transform.position.z), transform.rotation).gameObject;
                     temp = foo.GetComponent<RoastedCoffeeBeans>().roast;
                     temp.roastLevel = RoastLevel.MEDIUM;
                     rb = foo.GetComponent<Rigidbody2D>();
-                    rb.AddForce(new Vector2(1f, 1f), ForceMode2D.Impulse);
+                    rb.AddForce(new Vector2(2f, 2f), ForceMode2D.Impulse);
                 }
                 break;
             case RoastLevel.DARK:
-                for (int x = 0; x < 3; x++)
+                for (int x = 0; x < 1; x++)
                 {
                     StartCoroutine((WaitABit()));
-                    foo = Instantiate(darkRoasts[0], new Vector3(transform.position.x + UnityEngine.Random.Range(1, 6),
-                                                                  transform.position.x + UnityEngine.Random.Range(1, 6),
+                    foo = Instantiate(darkRoasts[0], new Vector3(transform.position.x + UnityEngine.Random.Range(2, 3),
+                                                                  transform.position.y + UnityEngine.Random.Range(2, 3),
                                                                   transform.position.z), transform.rotation).gameObject;
                     temp = foo.GetComponent<RoastedCoffeeBeans>().roast;
                     temp.roastLevel = RoastLevel.DARK;
                     rb = foo.GetComponent<Rigidbody2D>();
-                    rb.AddForce(new Vector2(1f, 1f), ForceMode2D.Impulse);
+                    rb.AddForce(new Vector2(2f, 2f), ForceMode2D.Impulse);
                 }
                 break;
             default:
