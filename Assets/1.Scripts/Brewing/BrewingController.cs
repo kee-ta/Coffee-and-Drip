@@ -94,7 +94,7 @@ public class BrewingController : MonoBehaviour
                 Debug.Log("Try again!");
             }
         }
-        brewProgress = Mathf.Clamp(brewProgress,0,1);
+        brewProgress = Mathf.Clamp(brewProgress,0,.9f);
     }
     // Start is called before the first frame update
     void Start()

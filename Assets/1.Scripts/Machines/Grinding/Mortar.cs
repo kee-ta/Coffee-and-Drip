@@ -25,8 +25,6 @@ public class Mortar : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        //Debug.Log("Mortar Trigger2DEnter");
-        //Debug.Log("Loaded is" + loaded.ToString());
         if (isColliding) return;
         isColliding = true;
         if (col.gameObject.GetComponent<RoastedCoffeeBeans>() && !loaded)
@@ -193,22 +191,26 @@ public class Mortar : MonoBehaviour
         {
             case RoastLevel.LIGHT:
                 temp = Instantiate(grounds[0], transform.position, transform.rotation).gameObject;
+                temp.GetComponent<GroundedCoffeeBeans>().grind.roast = RoastLevel.LIGHT;
                 rb = temp.GetComponent<Rigidbody2D>();
                 rb.AddForce(new Vector2(0.0f, 6f), ForceMode2D.Impulse);
                 break;
             case RoastLevel.MEDIUM:
                 temp = Instantiate(grounds[1], transform.position, transform.rotation).gameObject;
+                temp.GetComponent<GroundedCoffeeBeans>().grind.roast = RoastLevel.MEDIUM;
                 rb = temp.GetComponent<Rigidbody2D>();
                 rb.AddForce(new Vector2(0.0f, 6f), ForceMode2D.Impulse);
                 break;
             case RoastLevel.DARK:
                 temp = Instantiate(grounds[2], transform.position, transform.rotation).gameObject;
+                temp.GetComponent<GroundedCoffeeBeans>().grind.roast = RoastLevel.DARK;
                 rb = temp.GetComponent<Rigidbody2D>();
                 rb.AddForce(new Vector2(0.0f, 6f), ForceMode2D.Impulse);
                 break;
             default:
                 break;
         }
+        
         StartCoroutine(hack());
     }
 
