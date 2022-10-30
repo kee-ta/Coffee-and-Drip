@@ -16,6 +16,8 @@ public class Mortar : MonoBehaviour
 
     [SerializeField] private SpriteRenderer spr;
 
+    private int hp = 0;
+
     bool isColliding = false;
 
     public GroundedCoffeeBeans grinds;
@@ -24,7 +26,7 @@ public class Mortar : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.GetComponent<RoastedCoffeeBeans>())
+        if (other.gameObject.GetComponent<RoastedCoffeeBeans>() && !loaded)
         {
             Destroy(other.gameObject);
             mounted?.Invoke();
@@ -51,7 +53,7 @@ public class Mortar : MonoBehaviour
     {
         if (isColliding) return;
         isColliding = true;
-        if (col.gameObject.GetComponent<RoastedCoffeeBeans>())
+        if (col.gameObject.GetComponent<RoastedCoffeeBeans>() && !loaded)
         {
             Destroy(col.gameObject);
             mounted?.Invoke();
@@ -73,6 +75,9 @@ public class Mortar : MonoBehaviour
                     break;
             }
         }
+
+
+
         FadeCover();
     }
 
@@ -123,15 +128,6 @@ public class Mortar : MonoBehaviour
     }
     void OnMouseUp()
     {
-        /*
-        if (currentImage >= (sprites.Count - 2))
-        {
-            spr.sprite = sprites[sprites.Count - 1];
-            Instantiate(grinds, transform.position, transform.rotation);
-            currentImage = 0;
-            gameObject.GetComponent<Collider2D>().isTrigger = false;
-        }
-        */
         FadeCover(false);
     }
 
