@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: -4431055343331300913}
   - component: {fileID: 1710645104517939700}
   - component: {fileID: 1518141420437019696}
-  - component: {fileID: 5954425821568428161}
   m_Layer: 0
   m_Name: DarkRoast
   m_TagString: Untagged
@@ -152,18 +151,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
   _speed: 10
---- !u!114 &5954425821568428161
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 154371689609930477}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b740a433ef457834f9e7f3dd3d07c59b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  content: Dark Roast
-  header: 
-  isActive: 0

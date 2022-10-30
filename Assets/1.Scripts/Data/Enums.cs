@@ -1,5 +1,6 @@
 public enum RoastLevel
 {
+    NULL,
     LIGHT,
     MEDIUM,
     DARK

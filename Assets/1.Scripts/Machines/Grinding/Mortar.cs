@@ -13,14 +13,13 @@ public class Mortar : MonoBehaviour
     [SerializeField] List<Sprite> darkRoast = new List<Sprite>();
     [SerializeField] List<Sprite> groundedSprites = new List<Sprite>();
     [SerializeField] private SpriteRenderer frontMortar, backMortar;
-
-    [SerializeField] private SpriteRenderer spr;
+    [SerializeField] public List<RoastedCoffeeBeans> roasts = new List<RoastedCoffeeBeans>();
+    [SerializeField]private SpriteRenderer spr;
 
     private int hp = 0;
+    private RoastLevel loadedType;
 
     bool isColliding = false;
-
-    public GroundedCoffeeBeans grinds;
 
     private int currentImage = 0;
 
@@ -51,6 +50,7 @@ public class Mortar : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
+        Debug.Log("Mortar Trigger2DEnter");
         if (isColliding) return;
         isColliding = true;
         if (col.gameObject.GetComponent<RoastedCoffeeBeans>() && !loaded)
@@ -59,25 +59,21 @@ public class Mortar : MonoBehaviour
             mounted?.Invoke();
             loaded = true;
             gameObject.GetComponent<Collider2D>().isTrigger = true;
-            switch (col.gameObject.GetComponent<RoastedCoffeeBeans>().roast.roastLevel)
+            SetSprite(col.gameObject.GetComponent<RoastedCoffeeBeans>().roast.roastLevel);
+            loadedType = col.gameObject.GetComponent<RoastedCoffeeBeans>().roast.roastLevel;
+        }
+        if (col.gameObject.GetComponent<Pestle>() && loaded)
+        {
+            if ((hp <= 2))
             {
-                case RoastLevel.LIGHT:
-                    SetSprite(col.gameObject.GetComponent<RoastedCoffeeBeans>().roast.roastLevel);
-                    break;
-                case RoastLevel.MEDIUM:
-                    SetSprite(col.gameObject.GetComponent<RoastedCoffeeBeans>().roast.roastLevel);
-                    break;
-                case RoastLevel.DARK:
-                    SetSprite(col.gameObject.GetComponent<RoastedCoffeeBeans>().roast.roastLevel);
-                    break;
-                default:
-
-                    break;
+                hp++;
+                SetSprite(loadedType, hp);
+            }
+            if(hp >= 2)
+            {
+                gameObject.GetComponent<Collider2D>().isTrigger = false;
             }
         }
-
-
-
         FadeCover();
     }
 
@@ -98,6 +94,17 @@ public class Mortar : MonoBehaviour
 
                 break;
         }
+    }
+
+    private void OnMouseOver()
+    {
+        FadeCover();
+    }
+
+    private void OnMouseExit()
+    {
+        if(!loaded)
+        FadeCover(false);
     }
 
     void SetSprite(RoastLevel level = RoastLevel.LIGHT, int stage = 0)
@@ -122,12 +129,15 @@ public class Mortar : MonoBehaviour
     void OnTriggerExit2D(Collider2D col)
     {
         Debug.Log("exit!!");
+        isColliding = false;
         StartCoroutine(Reset());
+        if(!loaded)
         FadeCover(false);
 
     }
     void OnMouseUp()
     {
+        if(!loaded)
         FadeCover(false);
     }
 
@@ -146,9 +156,25 @@ public class Mortar : MonoBehaviour
     private void OnMouseDown()
     {
         FadeCover(true);
+        if(hp>=2)
+        {
+            SpawnGrounded();
+        }
     }
 
-    IEnumerator Reset()
+    private void SpawnGrounded () 
+    {
+        
+    }
+
+    private void ResetMortar () 
+    {
+        loadedType = RoastLevel.NULL;
+        loaded = false;
+        spr.sprite = null;
+    }
+
+    private IEnumerator Reset()
     {
         yield return new WaitForEndOfFrame();
         isColliding = false;

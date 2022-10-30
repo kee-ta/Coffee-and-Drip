@@ -14,9 +14,8 @@ GameObject:
   - component: {fileID: 3947385720405772589}
   - component: {fileID: 3947385720405772562}
   - component: {fileID: 3947385720405772563}
-  - component: {fileID: 265616833147452548}
   m_Layer: 0
-  m_Name: GroundCoffee
+  m_Name: DarkGroundCoffee
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,8 +29,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3947385720405772585}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.36, y: -3.33, z: 0}
-  m_LocalScale: {x: 1, y: 0.4498, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -78,8 +77,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.5188679, g: 0.1294536, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: c7910389a8e73574e8885cb273cbe325, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -118,7 +117,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 10.24, y: 10.24}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -182,18 +181,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
   _speed: 10
---- !u!114 &265616833147452548
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3947385720405772585}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b740a433ef457834f9e7f3dd3d07c59b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  content: Grounded Beans
-  header: 
-  isActive: 1
