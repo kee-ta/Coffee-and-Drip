@@ -9,6 +9,7 @@ public class Roaster : Machine
     [SerializeField] private GameObject body;
     [SerializeField] private GameObject tracker;
     [SerializeField] public ParticleSystem fire;
+    [SerializeField] private Transform pivot;
 
     public static Action startRoastingGame;
 
@@ -73,8 +74,8 @@ public class Roaster : Machine
                 for (int x = 0; x < 3; x++)
                 {
                     StartCoroutine((WaitABit()));
-                    foo = Instantiate(lightRoasts[0], new Vector3(transform.position.x+UnityEngine.Random.Range(1,6),
-                                                                  transform.position.x+UnityEngine.Random.Range(1,6),
+                    foo = Instantiate(lightRoasts[0], new Vector3(transform.position.x + UnityEngine.Random.Range(1, 6),
+                                                                  transform.position.x + UnityEngine.Random.Range(1, 6),
                                                                   transform.position.z), transform.rotation).gameObject;
                     temp = foo.GetComponent<RoastedCoffeeBeans>().roast;
                     temp.roastLevel = RoastLevel.LIGHT;
@@ -86,8 +87,8 @@ public class Roaster : Machine
                 for (int x = 0; x < 3; x++)
                 {
                     StartCoroutine((WaitABit()));
-                    foo = Instantiate(mediumRoasts[0], new Vector3(transform.position.x+UnityEngine.Random.Range(1,6),
-                                                                  transform.position.x+UnityEngine.Random.Range(1,6),
+                    foo = Instantiate(mediumRoasts[0], new Vector3(transform.position.x + UnityEngine.Random.Range(1, 6),
+                                                                  transform.position.x + UnityEngine.Random.Range(1, 6),
                                                                   transform.position.z), transform.rotation).gameObject;
                     temp = foo.GetComponent<RoastedCoffeeBeans>().roast;
                     temp.roastLevel = RoastLevel.MEDIUM;
@@ -99,11 +100,11 @@ public class Roaster : Machine
                 for (int x = 0; x < 3; x++)
                 {
                     StartCoroutine((WaitABit()));
-                    foo = Instantiate(darkRoasts[0], new Vector3(transform.position.x+UnityEngine.Random.Range(1,6),
-                                                                  transform.position.x+UnityEngine.Random.Range(1,6),
+                    foo = Instantiate(darkRoasts[0], new Vector3(transform.position.x + UnityEngine.Random.Range(1, 6),
+                                                                  transform.position.x + UnityEngine.Random.Range(1, 6),
                                                                   transform.position.z), transform.rotation).gameObject;
                     temp = foo.GetComponent<RoastedCoffeeBeans>().roast;
-                    temp.roastLevel = RoastLevel.MEDIUM;
+                    temp.roastLevel = RoastLevel.DARK;
                     rb = foo.GetComponent<Rigidbody2D>();
                     rb.AddForce(new Vector2(1f, 1f), ForceMode2D.Impulse);
                 }
@@ -112,6 +113,23 @@ public class Roaster : Machine
                 //Do Nothing
                 break;
         }
-
+        ResetRoaster();
     }
+
+    private void ResetRoaster()
+    {
+        tracker.GetComponent<RoastZoneRotate>().Reset();
+        StartCoroutine(RotatePivot());
+        rawBeans = null;
+        loaded = false;
+        fire.Stop();
+    }
+
+    private IEnumerator RotatePivot()
+    {
+
+            yield return null;
+        
+    }
+
 }

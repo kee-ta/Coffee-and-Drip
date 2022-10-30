@@ -43,11 +43,11 @@ public class RoastZoneRotate : MonoBehaviour
         Reset();
     }
 
-    private void Reset()
+    public void Reset()
     {
         started = false;
         trail.Stop();
-        gameObject.transform.position = new Vector3(-0.94f, -1.97f, -1f);
+        gameObject.transform.position = new Vector3(0f, 0f, 0f);
     }
 
     void OnTriggerStay2D(Collider2D collision)

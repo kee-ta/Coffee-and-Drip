@@ -30,7 +30,7 @@ public class Pestle : MonoBehaviour
         var currentPosition = transform.position;
         if(((currentPosition.y-positions.Last.Value.y > 0.01)) || (positions.Last.Value.y-currentPosition.y > 0.01))
         {
-            Debug.Log("Hello!");
+            //Debug.Log("Hello!");
             //Do something
         }
     
@@ -43,7 +43,7 @@ public class Pestle : MonoBehaviour
     }
     void OnMouseDown() 
     {
-        Debug.Log("Grabbed!");
+        //Debug.Log("Grabbed!");
         isHeld= true;
 
         if(rb.rotation!= 0)

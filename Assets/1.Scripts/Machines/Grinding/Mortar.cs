@@ -11,10 +11,10 @@ public class Mortar : MonoBehaviour
     [SerializeField] List<Sprite> lightRoast = new List<Sprite>();
     [SerializeField] List<Sprite> medRoast = new List<Sprite>();
     [SerializeField] List<Sprite> darkRoast = new List<Sprite>();
-    [SerializeField] List<Sprite> groundedSprites = new List<Sprite>();
+    [SerializeField] List<GroundedCoffeeBeans> grounds = new List<GroundedCoffeeBeans>();
     [SerializeField] private SpriteRenderer frontMortar, backMortar;
     [SerializeField] public List<RoastedCoffeeBeans> roasts = new List<RoastedCoffeeBeans>();
-    [SerializeField]private SpriteRenderer spr;
+    [SerializeField] private SpriteRenderer spr;
 
     private int hp = 0;
     private RoastLevel loadedType;
@@ -23,34 +23,10 @@ public class Mortar : MonoBehaviour
 
     private int currentImage = 0;
 
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.GetComponent<RoastedCoffeeBeans>() && !loaded)
-        {
-            Destroy(other.gameObject);
-            mounted?.Invoke();
-            loaded = true;
-            gameObject.GetComponent<Collider2D>().isTrigger = true;
-        }
-
-        if (other.gameObject.GetComponent<Pestle>() && loaded)
-        {
-            FadeCover();
-            Debug.Log("Hit!!");
-            if (currentImage < (lightRoast.Count - 2))
-            {
-                currentImage++;
-                spr.sprite = lightRoast[currentImage];
-            }
-        }
-        FadeCover();
-        Debug.Log("Mortar Trigger");
-    }
-
-
     void OnTriggerEnter2D(Collider2D col)
     {
         Debug.Log("Mortar Trigger2DEnter");
+        Debug.Log("Loaded is" + loaded.ToString());
         if (isColliding) return;
         isColliding = true;
         if (col.gameObject.GetComponent<RoastedCoffeeBeans>() && !loaded)
@@ -64,14 +40,14 @@ public class Mortar : MonoBehaviour
         }
         if (col.gameObject.GetComponent<Pestle>() && loaded)
         {
-            if ((hp <= 2))
+            if ((hp < 2))
             {
                 hp++;
                 SetSprite(loadedType, hp);
             }
-            if(hp >= 2)
+            if (hp >= 2)
             {
-                gameObject.GetComponent<Collider2D>().isTrigger = false;
+
             }
         }
         FadeCover();
@@ -103,8 +79,8 @@ public class Mortar : MonoBehaviour
 
     private void OnMouseExit()
     {
-        if(!loaded)
-        FadeCover(false);
+        if (!loaded)
+            FadeCover(false);
     }
 
     void SetSprite(RoastLevel level = RoastLevel.LIGHT, int stage = 0)
@@ -128,17 +104,18 @@ public class Mortar : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D col)
     {
-        Debug.Log("exit!!");
+        //Debug.Log("exit!!");
         isColliding = false;
         StartCoroutine(Reset());
-        if(!loaded)
-        FadeCover(false);
-
+        if (!loaded)
+        {
+            FadeCover(false);
+        }
     }
     void OnMouseUp()
     {
-        if(!loaded)
-        FadeCover(false);
+        if (!loaded)
+            FadeCover(false);
     }
 
     private void FadeCover(bool doFade = true)
@@ -156,19 +133,88 @@ public class Mortar : MonoBehaviour
     private void OnMouseDown()
     {
         FadeCover(true);
-        if(hp>=2)
+        if (loaded)
         {
-            SpawnGrounded();
+            if (hp == 2)
+                SpawnGrounded();
+            else
+            {
+                SpawnRoasted();
+            }
         }
+        else
+        {
+
+        }
+        ResetMortar();
     }
 
-    private void SpawnGrounded () 
+    private IEnumerator hack()
     {
-        
+        yield return new WaitForSecondsRealtime(3);
+        this.gameObject.GetComponent<Collider2D>().enabled = true;
     }
 
-    private void ResetMortar () 
+    private void SpawnRoasted()
     {
+        GameObject temp;
+        Rigidbody2D rb;
+        this.gameObject.GetComponent<Collider2D>().enabled = false;
+        switch (loadedType)
+        {
+            case RoastLevel.LIGHT:
+                temp = Instantiate(roasts[0], transform.position, transform.rotation).gameObject;
+                rb = temp.GetComponent<Rigidbody2D>();
+                rb.AddForce(new Vector2(0.0f, 2f), ForceMode2D.Impulse);
+                break;
+            case RoastLevel.MEDIUM:
+                temp = Instantiate(roasts[1], transform.position, transform.rotation).gameObject;
+                rb = temp.GetComponent<Rigidbody2D>();
+                rb.AddForce(new Vector2(0.0f, 2f), ForceMode2D.Impulse);
+                break;
+            case RoastLevel.DARK:
+                temp = Instantiate(roasts[2], transform.position, transform.rotation).gameObject;
+                rb = temp.GetComponent<Rigidbody2D>();
+                rb.AddForce(new Vector2(0.0f, 2f), ForceMode2D.Impulse);
+                break;
+            default:
+
+                break;
+        }
+        StartCoroutine(hack());
+
+    }
+    private void SpawnGrounded()
+    {
+        GameObject temp;
+        Rigidbody2D rb;
+        this.gameObject.GetComponent<Collider2D>().enabled = false;
+        switch (loadedType)
+        {
+            case RoastLevel.LIGHT:
+                temp = Instantiate(grounds[0], transform.position, transform.rotation).gameObject;
+                rb = temp.GetComponent<Rigidbody2D>();
+                rb.AddForce(new Vector2(0.0f, 6f), ForceMode2D.Impulse);
+                break;
+            case RoastLevel.MEDIUM:
+                temp = Instantiate(grounds[1], transform.position, transform.rotation).gameObject;
+                rb = temp.GetComponent<Rigidbody2D>();
+                rb.AddForce(new Vector2(0.0f, 6f), ForceMode2D.Impulse);
+                break;
+            case RoastLevel.DARK:
+                temp = Instantiate(grounds[2], transform.position, transform.rotation).gameObject;
+                rb = temp.GetComponent<Rigidbody2D>();
+                rb.AddForce(new Vector2(0.0f, 6f), ForceMode2D.Impulse);
+                break;
+            default:
+                break;
+        }
+        StartCoroutine(hack());
+    }
+
+    private void ResetMortar()
+    {
+        hp = 0;
         loadedType = RoastLevel.NULL;
         loaded = false;
         spr.sprite = null;
