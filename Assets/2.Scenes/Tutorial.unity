@@ -1924,6 +1924,9 @@ MonoBehaviour:
     ingredientID: 0
     itemId: 0
     roast: 0
+  acidity: 1
+  aroma: 23
+  sweetness: 3
 --- !u!212 &671489387
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2762,6 +2765,9 @@ MonoBehaviour:
     ingredientID: 0
     itemId: 0
     roast: 0
+  acidity: 3
+  aroma: 8
+  sweetness: 5
 --- !u!212 &829443861
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3299,6 +3305,9 @@ MonoBehaviour:
     ingredientID: 0
     itemId: 0
     roast: 0
+  acidity: 2
+  aroma: 2
+  sweetness: 2
 --- !u!212 &916263354
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3438,6 +3447,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 945728679}
+  - component: {fileID: 945728680}
   m_Layer: 0
   m_Name: ResultControl
   m_TagString: Untagged
@@ -3461,6 +3471,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &945728680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 945728678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a6e9b242998348419727cd81b0d7469, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  endcard: {fileID: 0}
+  doneButton: {fileID: 0}
+  holder: {fileID: 0}
+  scoreText: {fileID: 0}
+  scoreCanvas: {fileID: 500660147}
+  sweetTargetPos: []
+  acidTargetPos: []
+  aromaTargetPos: []
+  bodyTargetPos: []
+  sweetList: []
+  acidList: []
+  aromaList: []
+  bodyList: []
+  brewer: {fileID: 1465409722}
 --- !u!1 &946440571
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,7 +10,7 @@ public class GroundedCoffeeBeans : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        this.grind.sweetness = 0; this.grind.acidity = 0; this.grind.aroma = 0;
+        //this.grind.sweetness = 0; this.grind.acidity = 0; this.grind.aroma = 0;
         beanName = "Ground Magic Bean";
     }
 

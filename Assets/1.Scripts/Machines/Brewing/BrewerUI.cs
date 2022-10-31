@@ -28,7 +28,6 @@ public class BrewerUI : MonoBehaviour
 
     private void Reset()
     {
-
         brewMinigame.SetActive(false);
     }
 
@@ -37,6 +36,7 @@ public class BrewerUI : MonoBehaviour
         if (brewSlots[2].gameObject.activeInHierarchy)
         {
             brewSlots[2].gameObject.SetActive(false);
+            brewStart.gameObject.SetActive(false);
         }
         else if (brewSlots[1].gameObject.activeInHierarchy)
         {
@@ -57,6 +57,7 @@ public class BrewerUI : MonoBehaviour
         if (!brewSlots[2].gameObject.activeInHierarchy)
         {
             brewSlots[2].gameObject.SetActive(true);
+            
         }
         else if (!brewSlots[1].gameObject.activeInHierarchy)
         {
@@ -70,13 +71,16 @@ public class BrewerUI : MonoBehaviour
         {
             //donothing
         }
+        if(brewSlots[0].gameObject.activeInHierarchy)
+        {
+            brewStart.gameObject.SetActive(true);
+        }
     }
 
     public void ActivateBrewingGame()
     {
         brewMinigame.SetActive(true);
         StartBrewing?.Invoke();
-
     }
 
     // Start is called before the first frame update

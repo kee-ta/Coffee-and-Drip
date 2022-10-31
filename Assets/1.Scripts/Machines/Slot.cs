@@ -7,14 +7,20 @@ public class Slot : MonoBehaviour
     [SerializeField] private List<GroundedCoffeeBeans> beans;
     public GroundCoffeeData groundCoffeeData;
 
+    [Header("Grind Settings")]
+    public int acidity, aroma, sweetness;
+
     private void OnMouseDown()
     {
         Spawn(((int)groundCoffeeData.roast)-1);
     }
 
     public void Spawn(int x){
-        Instantiate(beans[x],transform.position,transform.rotation);
-        Debug.Log("Spawning!");
+        groundCoffeeData.acidity = acidity;
+        groundCoffeeData.aroma = aroma;
+        groundCoffeeData.sweetness = sweetness;
+        GroundedCoffeeBeans temp = Instantiate(beans[x],transform.position,transform.rotation);
+        temp.grind = groundCoffeeData;
     }
     // Start is called before the first frame update
     void Start()
