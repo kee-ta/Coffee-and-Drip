@@ -29,7 +29,7 @@ public class MenuController : MonoBehaviour
     {
         if (FirstFocusItem != null)
         {
-            EventSystem.current.SetSelectedGameObject(FirstFocusItem);
+//            EventSystem.current.SetSelectedGameObject(FirstFocusItem);
         }
 
         if (InitialPage != null)

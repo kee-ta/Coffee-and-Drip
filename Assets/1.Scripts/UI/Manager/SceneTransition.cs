@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-
+using UnityEngine.SceneManagement;
 public class SceneTransition : MonoBehaviour
 {
     private CanvasGroup CanvasGroup;
     [SerializeField] TextMeshProUGUI scene, caption;
     [SerializeField] Image panel;
+
 
     void Awake()
     {
@@ -28,9 +29,26 @@ public class SceneTransition : MonoBehaviour
 
     public void BeginFadeIn()
     {
-        StartCoroutine(AnimationHelper.FadeIn(panel, 1, 2.0f));
-        StartCoroutine(AnimationHelper.FadeIn(scene, 1, 2.0f, 2.0f));
-        StartCoroutine(AnimationHelper.FadeIn(caption, 1, 2.0f, 5.0f));
+        /*
+        StartCoroutine(AnimationHelper.FadeIn(panel, 1, 1.0f));
+        StartCoroutine(AnimationHelper.FadeIn(scene, 1, 1.0f, 1.0f));
+        StartCoroutine(AnimationHelper.FadeIn(caption, 1, 1.0f, 3.0f));
+        */
+        //SceneManager.UnloadSceneAsync("MainMenu", UnloadSceneOptions.UnloadAllEmbeddedSceneObjects);
+       // SceneManager.LoadScene("Tutorial", LoadSceneMode.Additive);
+    }
+
+    private IEnumerator Hack()
+    {
+        SceneManager.UnloadSceneAsync("MainMenu");
+        SceneManager.LoadScene("Tutorial", LoadSceneMode.Additive);
+        StartCoroutine(HackMore());
+        yield return null;
+    }
+    private IEnumerator HackMore()
+    {
+        yield return new WaitForSecondsRealtime(1);
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName("Tutorial"));
     }
 
     public void ResetTransition()
@@ -42,11 +60,12 @@ public class SceneTransition : MonoBehaviour
 
     private void OnEnable()
     {
-        BeginFadeIn();
+        MainMenu.newGame += BeginFadeIn;
     }
 
     private void OnDisable()
     {
+        MainMenu.newGame -= BeginFadeIn;
         ResetTransition();
     }
 

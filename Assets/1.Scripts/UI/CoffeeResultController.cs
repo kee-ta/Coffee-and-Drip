@@ -4,12 +4,13 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using System.Linq;
+using UnityEngine.SceneManagement;
 public class CoffeeResultController : MonoBehaviour
 {
     public RectTransform endcard;
     public Button doneButton;
     public GameObject holder;
-    [SerializeField] TMPro.TMP_Text scoreText;
+    [SerializeField] TMPro.TMP_Text scoreText, acidText, sweetText, aromaText, bodyText;
     [SerializeField] Canvas scoreCanvas;
     [Header("Target Positions")]
     [SerializeField] List<GameObject> sweetTargetPos = new List<GameObject>();
@@ -22,9 +23,10 @@ public class CoffeeResultController : MonoBehaviour
     [SerializeField] List<Image> aromaList = new List<Image>();
     [SerializeField] List<Image> bodyList = new List<Image>();
     [SerializeField] Brewer brewer;
+    [SerializeField] BrewingController brewingController;
 
     int Score = 0;
-    int sweetScore=0,acidScore=0,aromaScore=0,bodyScore=0;
+    int sweetScore = 0, acidScore = 0, aromaScore = 0, bodyScore = 0;
 
 
 
@@ -32,12 +34,15 @@ public class CoffeeResultController : MonoBehaviour
     {
         List<GameObject> temp = new List<GameObject>();
         temp = brewer.brewStack.ToList<GameObject>();
-        foreach(GameObject x in temp)
+        foreach (GameObject x in temp)
         {
             sweetScore += x.GetComponent<GroundedCoffeeBeans>().grind.sweetness;
             acidScore += x.GetComponent<GroundedCoffeeBeans>().grind.acidity;
             aromaScore += x.GetComponent<GroundedCoffeeBeans>().grind.aroma;
         }
+        bodyScore = brewingController.bodyScore;
+
+        Score = bodyScore + sweetScore + acidScore + aromaScore;
     }
 
 
@@ -57,19 +62,34 @@ public class CoffeeResultController : MonoBehaviour
 
     private void OnEnable()
     {
-        BrewingController.finishedBrewing += ShowCanvas;
         BrewingController.finishedBrewing += GetBrewerInfo;
-        
+        BrewingController.finishedBrewing += ShowCanvas;
     }
 
     private void OnDisable()
     {
-        BrewingController.finishedBrewing -= ShowCanvas;
         BrewingController.finishedBrewing -= GetBrewerInfo;
+        BrewingController.finishedBrewing -= ShowCanvas;
     }
     void SetScore(float value)
     {
-//        scoreText.text = value.ToString("0");
+        scoreText.text = value.ToString("0");
+    }
+    void SetSweetness(float value)
+    {
+        sweetText.text = value.ToString("0");
+    }
+    void SetAcid(float value)
+    {
+        acidText.text = value.ToString("0");
+    }
+    void SetAroma(float value)
+    {
+        aromaText.text = value.ToString("0");
+    }
+    void SetBody(float value)
+    {
+        bodyText.text = value.ToString("0");
     }
     // Update is called once per frame
     void Update()
@@ -79,16 +99,34 @@ public class CoffeeResultController : MonoBehaviour
 
     public void EndGame()
     {
+        /*
         endcard.gameObject.SetActive(true);
         LeanTween.alpha(endcard, 1.0f, 2.4f).setDelay(2f);
         Invoke("QuitGame", 7f);
+        */
     }
 
+    public void ToDialogue () {
+        SceneManager.UnloadSceneAsync("Tutorial");
+        SceneManager.LoadScene("Dialogue",LoadSceneMode.Additive);
+        StartCoroutine(hack());
+        
+    }
+
+    private IEnumerator hack()
+    {
+        yield return new WaitForSecondsRealtime(2);
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName("Dialogue"));
+    }
     void QuitGame() { Application.Quit(); }
     void ShowCanvas()
     {
         scoreCanvas.gameObject.SetActive(true);
-        LeanTween.move(holder, new Vector3(1002, 547, 0), 0.5f);
-        LeanTween.value(gameObject, 00, 17, 1f).setOnUpdate(SetScore);
+        //LeanTween.move(holder, new Vector3(1002, 547, 0), 0.5f);
+        LeanTween.value(gameObject, 00, Score, 6f).setOnUpdate(SetScore);
+        LeanTween.value(gameObject, 00, sweetScore, 4f).setOnUpdate(SetSweetness);
+        LeanTween.value(gameObject, 00, aromaScore, 3f).setOnUpdate(SetAroma);
+        LeanTween.value(gameObject, 00, acidScore, 1f).setOnUpdate(SetAcid);
+        LeanTween.value(gameObject, 00, bodyScore, 2f).setOnUpdate(SetBody);
     }
 }

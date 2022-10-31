@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     public static Action newGame, continueGame;
@@ -13,6 +13,8 @@ public class MainMenu : MonoBehaviour
     public void NewGameClick()
     {
         newGame?.Invoke();
+        SceneManager.LoadScene("Tutorial",LoadSceneMode.Additive);
+        SceneManager.UnloadScene("MainMenu");
     }
     
     public void ContinueGameClick () 
