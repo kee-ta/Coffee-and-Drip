@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.UI;
 
 public class BrewingController : MonoBehaviour
 {
@@ -22,10 +23,11 @@ public class BrewingController : MonoBehaviour
     [SerializeField] float brewGravity = .05f;
 
     [Header("Progress Bar Settings")]
-    [SerializeField] Transform progressContainer;
+    [SerializeField] Image progressContainer;
     [SerializeField] float power;
     [SerializeField] float decay;
 
+    public int bodyScore= 0;
 
     public static Action finishedBrewing;
 
@@ -69,9 +71,9 @@ public class BrewingController : MonoBehaviour
     }
     private void CheckBrewProgress()
     {
-        Vector3 barScale = progressContainer.localScale;
-        barScale.y = brewProgress;
-        progressContainer.localScale = barScale;
+        float barScale = progressContainer.fillAmount;
+        barScale = brewProgress;
+        progressContainer.fillAmount = barScale;
 
         float min = brewPosition - brewSize/2;
         float max = brewPosition + brewSize/2;
@@ -80,21 +82,23 @@ public class BrewingController : MonoBehaviour
         {
             Debug.Log("Going!");
             brewProgress += power * Time.deltaTime;
-            if(brewProgress >= 1)
+            if(barScale >= 1)
             {
                 Debug.Log("Done!");
-                finishedBrewing.Invoke();
+                finishedBrewing?.Invoke();
+                Debug.Log("Body score is " + bodyScore.ToString());
             }
         }
         else
         {
             brewProgress -= decay * Time.deltaTime;
+            bodyScore--;
             if(brewProgress <= -2)
             {   
                 Debug.Log("Try again!");
             }
         }
-        brewProgress = Mathf.Clamp(brewProgress,0,.9f);
+        brewProgress = Mathf.Clamp(brewProgress,0,1);
     }
     // Start is called before the first frame update
     void Start()

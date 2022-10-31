@@ -7,57 +7,87 @@ using System;
 public class BrewerUI : MonoBehaviour
 {
     public Canvas brewCanvas;
-    public Image brewSlot1, brewSlot2, brewSlot3;
+    public List<Image> brewSlots;
     public Button brewStart;
     public GameObject brewMinigame;
 
     public static Action StartBrewing;
 
-    private void OnEnable() 
+    private void OnEnable()
     {
         Brewer.slotFilled += ShowSlot;
+        BrewingController.finishedBrewing += Reset;
+        Brewer.slotCleared += HideSlot;
     }
-    private void OnDisable() 
+    private void OnDisable()
     {
         Brewer.slotFilled -= ShowSlot;
+        BrewingController.finishedBrewing -= Reset;
+        Brewer.slotCleared += HideSlot;
+    }
+
+    private void Reset()
+    {
+
+        brewMinigame.SetActive(false);
+    }
+
+    public void HideSlot()
+    {
+        if (brewSlots[2].gameObject.activeInHierarchy)
+        {
+            brewSlots[2].gameObject.SetActive(false);
+        }
+        else if (brewSlots[1].gameObject.activeInHierarchy)
+        {
+            brewSlots[1].gameObject.SetActive(false);
+        }
+        else if (brewSlots[0].gameObject.activeInHierarchy)
+        {
+            brewSlots[0].gameObject.SetActive(false);
+        }
+        else
+        {
+            //donothing
+        }
     }
 
     public void ShowSlot()
     {
-        brewCanvas.gameObject.SetActive(true);
-        if(brewSlot1.gameObject.activeInHierarchy == false)
+        if (!brewSlots[2].gameObject.activeInHierarchy)
         {
-            brewSlot1.gameObject.SetActive(true);
+            brewSlots[2].gameObject.SetActive(true);
         }
-        else if(brewSlot2.gameObject.activeInHierarchy == false)
+        else if (!brewSlots[1].gameObject.activeInHierarchy)
         {
-            brewSlot2.gameObject.SetActive(true);
+            brewSlots[1].gameObject.SetActive(true);
         }
-        else if(brewSlot3.gameObject.activeInHierarchy == false)
+        else if (!brewSlots[0].gameObject.activeInHierarchy)
         {
-            brewSlot3.gameObject.SetActive(true);
-            brewStart.gameObject.SetActive(true);
+            brewSlots[0].gameObject.SetActive(true);
         }
-        else{
-            //do nothing
+        else
+        {
+            //donothing
         }
     }
 
-    public void ActivateBrewingGame() 
+    public void ActivateBrewingGame()
     {
-        StartBrewing?.Invoke();
         brewMinigame.SetActive(true);
+        StartBrewing?.Invoke();
+
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

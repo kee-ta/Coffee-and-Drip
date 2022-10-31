@@ -130,18 +130,8 @@ public class PlayerController : SingletonController<PlayerController>
     // Update is called once per frame
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            RoastCoffeeData temp = new RoastCoffeeData(0, 5, 2, Flavor.BITTER);
-            if (EvaluateQuest(temp))
-            {
-                Debug.Log("Passed!");
-            }
-            else
-            {
-                Debug.Log("failed");
-            }
-        }
+
+        
 
         if (Input.GetKeyDown(KeyCode.D))
         {
