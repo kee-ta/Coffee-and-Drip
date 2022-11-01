@@ -74,7 +74,7 @@ public class DialogueManager : MonoBehaviour
         dialoguePanel.SetActive(false);
 
         // get the layout animator
-        layoutAnimator = dialoguePanel.GetComponent<Animator>();
+        //layoutAnimator = dialoguePanel.GetComponent<Animator>();
 
         // get all of the choices text 
         choicesText = new TextMeshProUGUI[choices.Length];
@@ -140,7 +140,7 @@ public class DialogueManager : MonoBehaviour
         // reset portrait, layout, and speaker
         displayNameText.text = "???";
         portraitAnimator.Play("default");
-        layoutAnimator.Play("right");
+        //layoutAnimator.Play("right");
 
         ContinueStory();
     }
@@ -315,7 +315,7 @@ public class DialogueManager : MonoBehaviour
                     portraitAnimator.Play(tagValue);
                     break;
                 case LAYOUT_TAG:
-                    layoutAnimator.Play(tagValue);
+                    //layoutAnimator.Play(tagValue);
                     break;
                 case AUDIO_TAG: 
                     SetCurrentAudioInfo(tagValue);

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.SceneManagement;
 public class PlayerController : SingletonController<PlayerController>
 {
     public Quest currentQuest;
@@ -131,16 +132,19 @@ public class PlayerController : SingletonController<PlayerController>
     private void Update()
     {
 
-        
 
-        if (Input.GetKeyDown(KeyCode.D))
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Tutorial"))
         {
-            StartCoroutine(MoveRight());
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                StartCoroutine(MoveRight());
+            }
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                StartCoroutine(MoveLeft());
+            }
         }
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            StartCoroutine(MoveLeft());
-        }
+
     }
 
     private void FixedUpdate()

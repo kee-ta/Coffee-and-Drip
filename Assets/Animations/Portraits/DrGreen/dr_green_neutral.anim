@@ -7,7 +7,7 @@ AnimationClip:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: dr_green_neutral
-  serializedVersion: 6
+  serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
   m_UseHighQualityCurve: 1
@@ -20,7 +20,7 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: 7225b7bb6ac02ad4dbc0f4815c6f883e, type: 3}
+      value: {fileID: 21300000, guid: 5712ede0f49b41f469ab834f0f750eb6, type: 3}
     attribute: m_Sprite
     path: 
     classID: 114
@@ -39,8 +39,9 @@ AnimationClip:
       typeID: 114
       customType: 0
       isPPtrCurve: 1
+      isIntCurve: 0
     pptrCurveMapping:
-    - {fileID: 21300000, guid: 7225b7bb6ac02ad4dbc0f4815c6f883e, type: 3}
+    - {fileID: 21300000, guid: 5712ede0f49b41f469ab834f0f750eb6, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

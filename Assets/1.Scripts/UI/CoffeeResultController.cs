@@ -40,7 +40,7 @@ public class CoffeeResultController : MonoBehaviour
             acidScore += x.GetComponent<GroundedCoffeeBeans>().grind.acidity;
             aromaScore += x.GetComponent<GroundedCoffeeBeans>().grind.aroma;
         }
-        bodyScore = brewingController.bodyScore;
+        bodyScore = brewingController.bodyScore + 50;
 
         Score = bodyScore + sweetScore + acidScore + aromaScore;
     }

@@ -9,8 +9,14 @@ EditorBuildSettings:
     path: Assets/2.Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
-    path: Assets/2.Scenes/BackBarPrototype.unity
-    guid: e26eb699a5256eb4e98e2982bae2f25d
+    path: Assets/2.Scenes/Boot.unity
+    guid: 1e50b08793d93c34f8cace9fc09ab106
+  - enabled: 1
+    path: Assets/2.Scenes/UI.unity
+    guid: 04b805305bf99d641bc2d3df4e01a54c
+  - enabled: 1
+    path: Assets/2.Scenes/MainMenu.unity
+    guid: a29aecc820450784b8b550bf1d066842
   - enabled: 1
     path: Assets/2.Scenes/Game.unity
     guid: e83d1b630685789429b6409144e22ab0
@@ -18,15 +24,6 @@ EditorBuildSettings:
     path: Assets/2.Scenes/Tutorial.unity
     guid: 99677f571f5f0444ea8de0acd03cb64f
   - enabled: 1
-    path: Assets/2.Scenes/UI.unity
-    guid: 04b805305bf99d641bc2d3df4e01a54c
-  - enabled: 1
-    path: Assets/2.Scenes/Boot.unity
-    guid: 1e50b08793d93c34f8cace9fc09ab106
-  - enabled: 1
     path: Assets/2.Scenes/Dialogue.unity
     guid: 69138fa08b48ea849943a2a39e9637f2
-  - enabled: 1
-    path: Assets/2.Scenes/MainMenu.unity
-    guid: a29aecc820450784b8b550bf1d066842
   m_configObjects: {}

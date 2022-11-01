@@ -691,7 +691,7 @@ GameObject:
   - component: {fileID: 200365839}
   - component: {fileID: 200365838}
   m_Layer: 5
-  m_Name: BodyTxt
+  m_Name: AcidTxt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1440,7 +1440,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -154.0617, y: 0}
+  m_AnchoredPosition: {x: -230, y: 0}
   m_SizeDelta: {x: 628.4874, y: 256.0557}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &369787600
@@ -2030,7 +2030,6 @@ GameObject:
   m_Component:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
-  - component: {fileID: 519420029}
   - component: {fileID: 519420030}
   m_Layer: 0
   m_Name: Main Camera
@@ -2039,14 +2038,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &519420029
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
 --- !u!114 &519420030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4634,10 +4625,10 @@ MonoBehaviour:
   doneButton: {fileID: 0}
   holder: {fileID: 0}
   scoreText: {fileID: 1622502397}
-  acidText: {fileID: 2031889622}
-  sweetText: {fileID: 2070037437}
+  acidText: {fileID: 200365838}
+  sweetText: {fileID: 2031889622}
   aromaText: {fileID: 889769374}
-  bodyText: {fileID: 200365838}
+  bodyText: {fileID: 2070037437}
   scoreCanvas: {fileID: 500660147}
   sweetTargetPos: []
   acidTargetPos: []
@@ -5004,7 +4995,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_TargetDisplay: 0
 --- !u!224 &1033691729
 RectTransform:
@@ -7600,7 +7591,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 999
+  m_text: -999
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5e9821aa075149144bcffe8d654ee242, type: 2}
   m_sharedMaterial: {fileID: 1716966838065293431, guid: 5e9821aa075149144bcffe8d654ee242, type: 2}
@@ -7663,7 +7654,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -87.12085, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -8818,7 +8809,7 @@ GameObject:
   - component: {fileID: 2031889623}
   - component: {fileID: 2031889622}
   m_Layer: 5
-  m_Name: AcidTxt
+  m_Name: SweetTxt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9062,7 +9053,7 @@ GameObject:
   - component: {fileID: 2070037438}
   - component: {fileID: 2070037437}
   m_Layer: 5
-  m_Name: SweetTxt
+  m_Name: BodyTxt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
