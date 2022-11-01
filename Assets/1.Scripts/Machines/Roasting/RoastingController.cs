@@ -74,12 +74,14 @@ public class RoastingController : MonoBehaviour
     }
     public void BeginRoasting()
     {
+        AudioManager.instance.PlaySound2D("buttonPress");
         RoastingStarted?.Invoke();
         RoastingButtonSwitch();
     }
 
     public void EndedRoasting()
     {
+        AudioManager.instance.PlaySound2D("buttonPress");
         RoastingEnded?.Invoke(currentRoastLevel);
         RoastingButtonSwitch();
         ResetGauge();

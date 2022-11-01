@@ -19,7 +19,7 @@ public class God : SingletonController<God>
         temp.Add(new QuestCondition(QuestType.ACID, 5));
         allQuests.Add(new Quest(1, "testQuest", "desc", temp));
         PlayerController.I.currentQuest = allQuests[0];
-//        Debug.Log(PlayerController.I.currentQuest.description);
+        //        Debug.Log(PlayerController.I.currentQuest.description);
     }
 
     private void OnEnable()
@@ -36,15 +36,30 @@ public class God : SingletonController<God>
     {
         GiveQuest();
         allRawBeans.Add(new GreenBeanData());
-        SceneManager.LoadSceneAsync("UI",LoadSceneMode.Additive);
-        SceneManager.LoadSceneAsync("MainMenu",LoadSceneMode.Additive);
+        SceneManager.LoadSceneAsync("UI", LoadSceneMode.Additive);
+        //SceneManager.LoadSceneAsync("MainMenu", LoadSceneMode.Additive);
         StartCoroutine(Hack());
     }
 
     private IEnumerator Hack()
     {
-        yield return new WaitForSecondsRealtime(2);
-        SceneManager.SetActiveScene(SceneManager.GetSceneByName("MainMenu"));
+        yield return null;
+
+
+        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync("MainMenu",LoadSceneMode.Additive);
+
+        //asyncOperation.allowSceneActivation = false;
+        Debug.Log("Pro :" + asyncOperation.progress);
+
+        while (!asyncOperation.isDone)
+        {
+            if (asyncOperation.isDone)
+            {
+                SceneManager.SetActiveScene(SceneManager.GetSceneByName("MainMenu"));
+            }
+
+            yield return null;
+        }
     }
     private void Update()
     {

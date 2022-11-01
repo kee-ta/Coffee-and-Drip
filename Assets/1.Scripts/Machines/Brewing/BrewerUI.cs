@@ -79,6 +79,7 @@ public class BrewerUI : MonoBehaviour
 
     public void ActivateBrewingGame()
     {
+        AudioManager.instance.PlaySound2D("buttonPress");
         brewMinigame.SetActive(true);
         StartBrewing?.Invoke();
     }

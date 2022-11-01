@@ -29,6 +29,7 @@ public class Mortar : MonoBehaviour
         isColliding = true;
         if (col.gameObject.GetComponent<RoastedCoffeeBeans>() && !loaded)
         {
+            AudioManager.instance.PlaySound2D("beanDrop");
             Destroy(col.gameObject);
             mounted?.Invoke();
             loaded = true;
@@ -40,6 +41,7 @@ public class Mortar : MonoBehaviour
         {
             if ((hp < 2))
             {
+                AudioManager.instance.PlaySound2D("mortarHit");
                 hp++;
                 SetSprite(loadedType, hp);
             }
@@ -162,16 +164,19 @@ public class Mortar : MonoBehaviour
         {
             case RoastLevel.LIGHT:
                 temp = Instantiate(roasts[0], transform.position, transform.rotation).gameObject;
+                temp.GetComponent<RoastCoffeeData>().roastLevel = RoastLevel.LIGHT;
                 rb = temp.GetComponent<Rigidbody2D>();
                 rb.AddForce(new Vector2(0.0f, 2f), ForceMode2D.Impulse);
                 break;
             case RoastLevel.MEDIUM:
                 temp = Instantiate(roasts[1], transform.position, transform.rotation).gameObject;
+                temp.GetComponent<RoastCoffeeData>().roastLevel = RoastLevel.MEDIUM;
                 rb = temp.GetComponent<Rigidbody2D>();
                 rb.AddForce(new Vector2(0.0f, 2f), ForceMode2D.Impulse);
                 break;
             case RoastLevel.DARK:
                 temp = Instantiate(roasts[2], transform.position, transform.rotation).gameObject;
+                temp.GetComponent<RoastCoffeeData>().roastLevel = RoastLevel.DARK;
                 rb = temp.GetComponent<Rigidbody2D>();
                 rb.AddForce(new Vector2(0.0f, 2f), ForceMode2D.Impulse);
                 break;

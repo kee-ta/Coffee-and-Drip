@@ -11,7 +11,7 @@ public class RoastZoneRotate : MonoBehaviour
     private Vector2 _centre;
     private float _angle;
     private float timer = 0.0f;
-    private float waitTime = .4f;
+    public float waitTime = .1f;
     public bool started = false;
     [SerializeField] public ParticleSystem trail;
 

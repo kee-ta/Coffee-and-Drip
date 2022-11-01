@@ -13,6 +13,7 @@ public class MainMenu : MonoBehaviour
     public void NewGameClick()
     {
         newGame?.Invoke();
+        AudioManager.instance.PlaySound2D("buttonPress");
         SceneManager.LoadScene("Tutorial",LoadSceneMode.Additive);
         SceneManager.UnloadScene("MainMenu");
     }

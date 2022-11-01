@@ -5,7 +5,14 @@ public enum RoastLevel
     MEDIUM,
     DARK
 }
-
+public enum TooltipType
+{
+    DEFAULT,
+    INGREDIENT,
+    ROASTCOFFEE,
+    GROUNDEDCOFFEE,
+    RAWCOFFEE
+}
 public enum QuestType
 {
     NULL,

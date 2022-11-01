@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-public class AmbientSoundManager : MonoBehaviour
+public class AmbientSoundManager : SingletonController<AmbientSoundManager>
 {
     public AudioClip ambientWind;
 	public AudioClip ambientRain;
@@ -17,19 +17,19 @@ public class AmbientSoundManager : MonoBehaviour
     void OnDisable(){
 
     }
-	void PlayRain(){
-		AudioManager.instance.PlayAmbient(ambientRain, 5);
+	public void PlayRain(){
+		AudioManager.instance.PlayAmbient(ambientRain, 3);
 	}
-    void StopSound(){
+    public void StopSound(){
         AudioManager.instance.StopAmbient();
     }
-    void PlayWind()
+    public void PlayWind()
     {
-     	AudioManager.instance.PlayAmbient(ambientWind, 5);
+     	AudioManager.instance.PlayAmbient(ambientWind, 3);
     }
-    void PlayForest()
+    public void PlayForest()
     {
-     	AudioManager.instance.PlayAmbient(ambientForest, 5);
+     	AudioManager.instance.PlayAmbient(ambientForest, 3);
     }
     // Update is called once per frame
     void Update()

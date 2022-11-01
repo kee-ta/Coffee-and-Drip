@@ -108,6 +108,7 @@ public class AnimationHelper
         }
     }
 
+
     public static IEnumerator FadeOut(CanvasGroup CanvasGroup, float Speed, UnityEvent OnEnd)
     {
         CanvasGroup.blocksRaycasts = false;

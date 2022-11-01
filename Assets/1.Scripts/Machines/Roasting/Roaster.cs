@@ -34,9 +34,12 @@ public class Roaster : Machine
     {
         if (loaded)
         {
+            AudioManager.instance.PlaySound2D("beanDrop");
             fire.Play();
+            AudioManager.instance.PlaySound2D("roasterStart");
             tracker.SetActive(true);
             startRoastingGame?.Invoke();
+            AmbientSoundManager.I.PlayWind();
         }
     }
 
@@ -123,6 +126,7 @@ public class Roaster : Machine
         rawBeans = null;
         loaded = false;
         fire.Stop();
+        AmbientSoundManager.I.StopSound();
     }
 
     private IEnumerator RotatePivot()

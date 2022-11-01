@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 717319953}
   - component: {fileID: 717319955}
   - component: {fileID: 717319956}
+  - component: {fileID: 717319957}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -184,7 +185,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3d6e750933ef3848aef9e6950566f87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundGroups: []
+  soundGroups:
+  - groupID: roasterStart
+    group:
+    - {fileID: 8300000, guid: eb16c4daec06e2b4db7ad247ec9a9335, type: 3}
+    - {fileID: 8300000, guid: ba094a66cc53aff499ae4e353e28077d, type: 3}
+    - {fileID: 8300000, guid: 100aae04e3cf4824ab14fc5425c8017e, type: 3}
+    - {fileID: 8300000, guid: 3a002f848f93f974bbab412c1c2985f2, type: 3}
+  - groupID: beanDrop
+    group:
+    - {fileID: 8300000, guid: 608301eecad197940b34b4c826fb8ccf, type: 3}
+    - {fileID: 8300000, guid: e6311ca63a604a04c9602aeb2f44aa1d, type: 3}
+  - groupID: buttonPress
+    group:
+    - {fileID: 8300000, guid: 95360b82980161549843aae5f81206ca, type: 3}
+  - groupID: mortarHit
+    group:
+    - {fileID: 8300000, guid: c5e2680361898b948b259dfe7cde3043, type: 3}
+    - {fileID: 8300000, guid: 42991e0701087e74b80fe01b9cbe2439, type: 3}
+    - {fileID: 8300000, guid: c131a8775b38a0a4393e6f53db5308b5, type: 3}
+    - {fileID: 8300000, guid: a4e6c3686e0488d4c8cc95c3b6996d73, type: 3}
+    - {fileID: 8300000, guid: 8666f3115c132714391a175ab606ae8e, type: 3}
+    - {fileID: 8300000, guid: c2e5a9a3f67c5594b8140ea91b273981, type: 3}
+    - {fileID: 8300000, guid: c2e5a9a3f67c5594b8140ea91b273981, type: 3}
 --- !u!114 &717319955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,6 +228,21 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 717319951}
   m_Enabled: 1
+--- !u!114 &717319957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 717319951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52c6a36d4cf55b441b6b50f08cea22e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ambientWind: {fileID: 8300000, guid: 077e3ca6be5041d4cb7b5b362060582a, type: 3}
+  ambientRain: {fileID: 8300000, guid: 38f81ace83711434caa99cf2bffea9cd, type: 3}
+  ambientForest: {fileID: 0}
 --- !u!1 &894522035
 GameObject:
   m_ObjectHideFlags: 0

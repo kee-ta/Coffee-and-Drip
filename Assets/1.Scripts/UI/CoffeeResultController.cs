@@ -107,6 +107,7 @@ public class CoffeeResultController : MonoBehaviour
     }
 
     public void ToDialogue () {
+        AudioManager.instance.PlaySound2D("buttonPress");
         SceneManager.UnloadSceneAsync("Tutorial");
         SceneManager.LoadScene("Dialogue",LoadSceneMode.Additive);
         StartCoroutine(hack());

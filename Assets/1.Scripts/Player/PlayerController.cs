@@ -147,6 +147,16 @@ public class PlayerController : SingletonController<PlayerController>
 
     }
 
+    private void OnEnable() 
+    {
+        
+    }
+
+    private void OnDisable() 
+    {
+        
+    }
+
     private void FixedUpdate()
     {
 

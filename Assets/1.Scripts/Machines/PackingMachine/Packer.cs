@@ -33,6 +33,7 @@ public class Packer : MonoBehaviour
 
     public void PackAndSpawn () 
     {
+        AudioManager.instance.PlaySound2D("buttonPress");
         Rigidbody2D rb;
         rb = thingy.GetComponent<Rigidbody2D>();
         rb.AddForce(new Vector2(10f, 10f), ForceMode2D.Impulse);
