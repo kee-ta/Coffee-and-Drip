@@ -7,7 +7,6 @@ using System;
 public class Pestle : MonoBehaviour
 {
     private Vector3 _dragOffset;
-    private Camera _cam;
     public Rigidbody2D rb;
     public bool isHeld = false; 
     bool canMove = true;
@@ -17,7 +16,6 @@ public class Pestle : MonoBehaviour
     void Awake() 
     {
         rb = GetComponent<Rigidbody2D>();
-        _cam = Camera.main;
     }
 
     void Update()
@@ -72,7 +70,7 @@ public class Pestle : MonoBehaviour
     }
 
     Vector3 GetMousePos() {
-        var mousePos = _cam.ScreenToWorldPoint(Input.mousePosition);
+        var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = 0;
         return mousePos;
     }

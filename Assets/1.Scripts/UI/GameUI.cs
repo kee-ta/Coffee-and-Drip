@@ -16,7 +16,8 @@ public class GameUI : MonoBehaviour
     }
 
     public void OpenOrClose () {
-        AudioManager.instance.PlaySound2D("buttonPress");
+        //AudioManager.instance.PlaySound2D("bookFlip");
+        //AudioManager.instance.PlaySound2D("buttonPress");
         if(book.activeInHierarchy)
         {
             book.SetActive(false);

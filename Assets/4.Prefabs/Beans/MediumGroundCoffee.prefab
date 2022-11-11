@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3947385720405772562}
   - component: {fileID: 3947385720405772563}
   - component: {fileID: 742652390030881322}
+  - component: {fileID: -1056268888721597658}
   m_Layer: 0
   m_Name: MediumGroundCoffee
   m_TagString: Untagged
@@ -100,6 +101,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 739e12079e0b1004c8c5f134ba002c9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  grind:
+    quality: 0
+    flavor: 7
+    sweetness: 0
+    acidity: 0
+    aroma: 0
+    ingredientID: 0
+    itemId: 000
+    roast: 0
 --- !u!50 &3947385720405772562
 Rigidbody2D:
   serializedVersion: 4
@@ -134,6 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
+  canDrag: 1
   _speed: 10
 --- !u!58 &742652390030881322
 CircleCollider2D:
@@ -151,3 +162,17 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0.023489892}
   serializedVersion: 2
   m_Radius: 3.4992776
+--- !u!114 &-1056268888721597658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3947385720405772585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 393196acd57d7684f92ef9705e22c663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isActive: 1
+  type: 3

@@ -10,7 +10,6 @@ public class RoastedCoffeeBeans : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        this.roast.sweetness = 0; this.roast.acidity = 0; this.roast.aroma = 0;
         beanName = "Roasted Magic Bean";
     }
 

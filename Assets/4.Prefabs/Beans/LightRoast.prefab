@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6491062729030253218}
   - component: {fileID: 5777469154390085906}
   - component: {fileID: -2125157553927357957}
+  - component: {fileID: 6296158106207357371}
   m_Layer: 0
   m_Name: LightRoast
   m_TagString: Untagged
@@ -137,6 +138,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8ab001517d0a8348a9b0de73ed9423c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  roast:
+    quality: 0
+    flavor: 7
+    sweetness: 0
+    acidity: 0
+    aroma: 0
+    ingredientID: 0
+    roastLevel: 1
 --- !u!114 &-2125157553927357957
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,4 +159,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
+  canDrag: 1
   _speed: 10
+--- !u!114 &6296158106207357371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5777469154390085903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 393196acd57d7684f92ef9705e22c663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isActive: 1
+  type: 2

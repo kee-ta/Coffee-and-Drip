@@ -14,8 +14,8 @@ public class MainMenu : MonoBehaviour
     {
         newGame?.Invoke();
         AudioManager.instance.PlaySound2D("buttonPress");
-        SceneManager.LoadScene("Tutorial",LoadSceneMode.Additive);
-        SceneManager.UnloadScene("MainMenu");
+        SceneManager.LoadScene("Pretutorial",LoadSceneMode.Additive);
+        SceneManager.UnloadSceneAsync("MainMenu");
     }
     
     public void ContinueGameClick () 

@@ -82,6 +82,9 @@ public class Roaster : Machine
                                                                   transform.position.z), transform.rotation).gameObject;
                     temp = foo.GetComponent<RoastedCoffeeBeans>().roast;
                     temp.roastLevel = RoastLevel.LIGHT;
+                    temp.acidity = 4;
+                    temp.sweetness = 8;
+                    temp.aroma = 1;
                     rb = foo.GetComponent<Rigidbody2D>();
                     rb.AddForce(new Vector2(2f, 2f), ForceMode2D.Impulse);
                 }
@@ -95,6 +98,9 @@ public class Roaster : Machine
                                                                   transform.position.z), transform.rotation).gameObject;
                     temp = foo.GetComponent<RoastedCoffeeBeans>().roast;
                     temp.roastLevel = RoastLevel.MEDIUM;
+                    temp.acidity = 6;
+                    temp.sweetness = 3;
+                    temp.aroma = 2;
                     rb = foo.GetComponent<Rigidbody2D>();
                     rb.AddForce(new Vector2(2f, 2f), ForceMode2D.Impulse);
                 }
@@ -108,6 +114,9 @@ public class Roaster : Machine
                                                                   transform.position.z), transform.rotation).gameObject;
                     temp = foo.GetComponent<RoastedCoffeeBeans>().roast;
                     temp.roastLevel = RoastLevel.DARK;
+                    temp.acidity = 9;
+                    temp.sweetness = 5;
+                    temp.aroma = 3;
                     rb = foo.GetComponent<Rigidbody2D>();
                     rb.AddForce(new Vector2(2f, 2f), ForceMode2D.Impulse);
                 }

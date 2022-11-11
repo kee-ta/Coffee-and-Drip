@@ -157,6 +157,7 @@ public class Mortar : MonoBehaviour
 
     private void SpawnRoasted()
     {
+        RoastCoffeeData foo;
         GameObject temp;
         Rigidbody2D rb;
         this.gameObject.GetComponent<Collider2D>().enabled = false;
@@ -166,17 +167,32 @@ public class Mortar : MonoBehaviour
                 temp = Instantiate(roasts[0], transform.position, transform.rotation).gameObject;
                 temp.GetComponent<RoastCoffeeData>().roastLevel = RoastLevel.LIGHT;
                 rb = temp.GetComponent<Rigidbody2D>();
+                foo = temp.GetComponent<RoastedCoffeeBeans>().roast;
+                foo.roastLevel = RoastLevel.LIGHT;
+                foo.acidity = 4;
+                foo.sweetness = 8;
+                foo.aroma = 1;
                 rb.AddForce(new Vector2(0.0f, 2f), ForceMode2D.Impulse);
                 break;
             case RoastLevel.MEDIUM:
                 temp = Instantiate(roasts[1], transform.position, transform.rotation).gameObject;
                 temp.GetComponent<RoastCoffeeData>().roastLevel = RoastLevel.MEDIUM;
+                foo = temp.GetComponent<RoastedCoffeeBeans>().roast;
+                foo.roastLevel = RoastLevel.MEDIUM;
+                foo.acidity = 6;
+                foo.sweetness = 3;
+                foo.aroma = 2;
                 rb = temp.GetComponent<Rigidbody2D>();
                 rb.AddForce(new Vector2(0.0f, 2f), ForceMode2D.Impulse);
                 break;
             case RoastLevel.DARK:
                 temp = Instantiate(roasts[2], transform.position, transform.rotation).gameObject;
                 temp.GetComponent<RoastCoffeeData>().roastLevel = RoastLevel.DARK;
+                foo = temp.GetComponent<RoastedCoffeeBeans>().roast;
+                foo.roastLevel = RoastLevel.DARK;
+                foo.acidity = 9;
+                foo.sweetness = 5;
+                foo.aroma = 3;
                 rb = temp.GetComponent<Rigidbody2D>();
                 rb.AddForce(new Vector2(0.0f, 2f), ForceMode2D.Impulse);
                 break;
@@ -189,6 +205,7 @@ public class Mortar : MonoBehaviour
     }
     private void SpawnGrounded()
     {
+        GroundCoffeeData foo;
         GameObject temp;
         Rigidbody2D rb;
         this.gameObject.GetComponent<Collider2D>().enabled = false;
@@ -197,25 +214,37 @@ public class Mortar : MonoBehaviour
             case RoastLevel.LIGHT:
                 temp = Instantiate(grounds[0], transform.position, transform.rotation).gameObject;
                 temp.GetComponent<GroundedCoffeeBeans>().grind.roast = RoastLevel.LIGHT;
+                foo = temp.GetComponent<GroundedCoffeeBeans>().grind;
+                foo.acidity = 4;
+                foo.sweetness = 8;
+                foo.aroma = 1;
                 rb = temp.GetComponent<Rigidbody2D>();
                 rb.AddForce(new Vector2(0.0f, 6f), ForceMode2D.Impulse);
                 break;
             case RoastLevel.MEDIUM:
                 temp = Instantiate(grounds[1], transform.position, transform.rotation).gameObject;
                 temp.GetComponent<GroundedCoffeeBeans>().grind.roast = RoastLevel.MEDIUM;
+                foo = temp.GetComponent<GroundedCoffeeBeans>().grind;
+                foo.acidity = 4;
+                foo.sweetness = 8;
+                foo.aroma = 1;
                 rb = temp.GetComponent<Rigidbody2D>();
                 rb.AddForce(new Vector2(0.0f, 6f), ForceMode2D.Impulse);
                 break;
             case RoastLevel.DARK:
                 temp = Instantiate(grounds[2], transform.position, transform.rotation).gameObject;
                 temp.GetComponent<GroundedCoffeeBeans>().grind.roast = RoastLevel.DARK;
+                foo = temp.GetComponent<GroundedCoffeeBeans>().grind;
+                foo.acidity = 4;
+                foo.sweetness = 8;
+                foo.aroma = 1;
                 rb = temp.GetComponent<Rigidbody2D>();
                 rb.AddForce(new Vector2(0.0f, 6f), ForceMode2D.Impulse);
                 break;
             default:
                 break;
         }
-        
+
         StartCoroutine(hack());
     }
 

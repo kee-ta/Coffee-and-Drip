@@ -208,6 +208,10 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 8666f3115c132714391a175ab606ae8e, type: 3}
     - {fileID: 8300000, guid: c2e5a9a3f67c5594b8140ea91b273981, type: 3}
     - {fileID: 8300000, guid: c2e5a9a3f67c5594b8140ea91b273981, type: 3}
+  - groupID: bookFlip
+    group:
+    - {fileID: 8300000, guid: cefa137db0de4da42af88f8f2c447423, type: 3}
+    - {fileID: 8300000, guid: 9efe0a69bffba8d4290e089790b8c05c, type: 3}
 --- !u!114 &717319955
 MonoBehaviour:
   m_ObjectHideFlags: 0
