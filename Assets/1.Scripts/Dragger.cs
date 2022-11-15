@@ -9,6 +9,7 @@ public class Dragger : MonoBehaviour
     public Rigidbody2D rb;
 
     public bool canDrag = true;
+    public bool isHeld = false;
 
     [SerializeField] private float _speed = 10;
 
@@ -20,6 +21,7 @@ public class Dragger : MonoBehaviour
 
     void OnMouseDown()
     {
+        isHeld = true;
         if (canDrag)
         {
             rb.velocity = new Vector2(0.0f, 2.0f);
@@ -40,6 +42,7 @@ public class Dragger : MonoBehaviour
 
     void OnMouseUp()
     {
+        isHeld = false;
         rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
         rb.isKinematic = false;
     }
