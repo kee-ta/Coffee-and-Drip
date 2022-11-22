@@ -27,31 +27,39 @@ public class BrewingController : MonoBehaviour
     [SerializeField] float power;
     [SerializeField] float decay;
 
-    public int bodyScore= 0;
+    public int bodyScore = 0;
 
+    public AudioClip blop;
+    public AudioSource source;
+    float blopPitch = 1.0f;
+    float timeElasped = 0f;
+    float pitchInterval = 0f;
+    float pitchLowInterval = 0f;
     public static Action finishedBrewing;
+
 
     float spotPosition, spotSpeed, spotTimer, spotTargetPosition, brewPosition, brewVelocity, brewProgress;
 
-    void FixedUpdate() {
+    void FixedUpdate()
+    {
         MoveSpot();
         MoveBrew();
         CheckBrewProgress();
     }
 
-    private void MoveSpot () 
+    private void MoveSpot()
     {
         spotTimer -= Time.deltaTime;
-        if(spotTimer <0)
+        if (spotTimer < 0)
         {
             spotTimer = UnityEngine.Random.value * sweetSpotTimeRandomizer;
             spotTargetPosition = UnityEngine.Random.value;
         }
-        spotPosition = Mathf.SmoothDamp(spotPosition,spotTargetPosition, ref spotSpeed, motion);
-        sweetSpot.position = Vector3.Lerp(bottomBound.position,topBound.position,spotPosition);
+        spotPosition = Mathf.SmoothDamp(spotPosition, spotTargetPosition, ref spotSpeed, motion);
+        sweetSpot.position = Vector3.Lerp(bottomBound.position, topBound.position, spotPosition);
     }
 
-    private void MoveBrew () 
+    private void MoveBrew()
     {
         if (Input.GetMouseButton(0))
         {
@@ -60,14 +68,16 @@ public class BrewingController : MonoBehaviour
         brewVelocity -= brewGravity * Time.deltaTime;
 
         brewPosition += brewVelocity;
-        if(brewPosition - brewSize/2 <= 0 && brewVelocity <0){
+        if (brewPosition - brewSize / 2 <= 0 && brewVelocity < 0)
+        {
             brewVelocity = 0;
         }
-        if(brewPosition + brewSize / 2 >= 1 && brewVelocity > 0){
+        if (brewPosition + brewSize / 2 >= 1 && brewVelocity > 0)
+        {
             brewVelocity = 0;
         }
-        brewPosition = Mathf.Clamp(brewPosition, brewSize/2 ,1-brewSize/2);
-        brewZone.position = Vector3.Lerp(bottomBound.position,topBound.position,brewPosition);
+        brewPosition = Mathf.Clamp(brewPosition, brewSize / 2, 1 - brewSize / 2);
+        brewZone.position = Vector3.Lerp(bottomBound.position, topBound.position, brewPosition);
     }
     private void CheckBrewProgress()
     {
@@ -75,14 +85,20 @@ public class BrewingController : MonoBehaviour
         barScale = brewProgress;
         progressContainer.fillAmount = barScale;
 
-        float min = brewPosition - brewSize/2;
-        float max = brewPosition + brewSize/2;
+        float min = brewPosition - brewSize / 2;
+        float max = brewPosition + brewSize / 2;
 
-        if(min < spotPosition && spotPosition < max)
+        if (min < spotPosition && spotPosition < max)
         {
             Debug.Log("Going!");
             brewProgress += power * Time.deltaTime;
-            if(barScale >= 1)
+            pitchInterval += Time.deltaTime;
+            if (pitchInterval > 0.4f)
+            {
+                source.pitch += 0.05f;
+                pitchInterval = 0f;
+            }
+            if (barScale >= 1)
             {
                 Debug.Log("Done!");
                 finishedBrewing?.Invoke();
@@ -93,12 +109,25 @@ public class BrewingController : MonoBehaviour
         {
             brewProgress -= decay * Time.deltaTime;
             bodyScore--;
-            if(brewProgress <= -2)
-            {   
+            pitchLowInterval+= Time.deltaTime;
+            if (pitchLowInterval > 0.4f)
+            {
+                if(source.pitch >= 0.9f)
+                source.pitch -= 0.05f;
+                pitchLowInterval = 0f;
+            }
+            if (brewProgress <= -2)
+            {
                 Debug.Log("Try again!");
             }
         }
-        brewProgress = Mathf.Clamp(brewProgress,0,1);
+        brewProgress = Mathf.Clamp(brewProgress, 0, 1);
+        timeElasped += Time.deltaTime;
+        if (timeElasped > 0.5f)
+        {
+            source.PlayOneShot(blop);
+            timeElasped = 0;
+        }
     }
     // Start is called before the first frame update
     void Start()
@@ -109,6 +138,6 @@ public class BrewingController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
