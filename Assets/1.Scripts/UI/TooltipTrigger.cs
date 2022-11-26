@@ -25,7 +25,7 @@ public class TooltipTrigger : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     }
     private IEnumerator WaitABit()
     {
-        yield return new WaitForSecondsRealtime(5);
+        yield return new WaitForSecondsRealtime(8);
         OnMouseExit();
     }
 

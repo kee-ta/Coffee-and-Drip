@@ -8,7 +8,7 @@ public class DeleteZone : MonoBehaviour
     {
         if(other.gameObject.GetComponent<RoastedCoffeeBeans>() || other.gameObject.GetComponent<RawCoffeeBeans>())
         {
-            if(!other.gameObject.GetComponent<Dragger>().isHeld)
+            if(other.gameObject.GetComponent<Dragger>().isHeld)
             {
                 Destroy(other.gameObject);
             }

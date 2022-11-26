@@ -32,7 +32,7 @@ public class TabGroup : MonoBehaviour
     public void OnTabEnter(TabButton button)
     {
         ResetTabs();
-        if(selectedTab != null || button != selectedTab)
+        if (selectedTab != null || button != selectedTab)
         {
             button.background.sprite = tabHover;
         }

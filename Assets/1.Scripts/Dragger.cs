@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Dragger : MonoBehaviour
 {
@@ -10,13 +11,35 @@ public class Dragger : MonoBehaviour
 
     public bool canDrag = true;
     public bool isHeld = false;
+    bool canMove = true;
+    LinkedList<Vector3> positions = new LinkedList<Vector3>();
 
     [SerializeField] private float _speed = 10;
 
+    private void Start()
+    {
+        canMove = true;
+    }
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         _cam = Camera.main;
+    }
+
+    private void Update()
+    {
+        positions.AddLast(transform.position);
+        if (positions.Count > 3)
+            positions.RemoveFirst();
+
+        if (canMove)
+        {
+            rb.isKinematic = true;
+            if ((Math.Abs(positions.Last.Value.y) - Math.Abs(transform.position.y) < 0.001) || (Math.Abs(transform.position.y) - Math.Abs(positions.Last.Value.y) < 0.001))
+                transform.position = Vector3.MoveTowards(transform.position, GetMousePos() + _dragOffset, _speed * Time.deltaTime);
+            if ((Math.Abs(positions.Last.Value.x) - Math.Abs(transform.position.x) < 0.001) || (Math.Abs(transform.position.x) - Math.Abs(positions.Last.Value.x) < 0.001))
+                transform.position = Vector3.MoveTowards(transform.position, GetMousePos() + _dragOffset, _speed * Time.deltaTime);
+        }
     }
 
     void OnMouseDown()
@@ -30,13 +53,18 @@ public class Dragger : MonoBehaviour
             rb.isKinematic = true;
             _dragOffset = transform.position - GetMousePos();
         }
+
+        canMove = false;
     }
 
     void OnMouseDrag()
     {
         if (canDrag)
         {
-            transform.position = Vector3.MoveTowards(transform.position, GetMousePos() + _dragOffset, _speed * Time.deltaTime);
+            if ((Math.Abs(positions.Last.Value.y) - Math.Abs(transform.position.y) < 0.001) || (Math.Abs(transform.position.y) - Math.Abs(positions.Last.Value.y) < 0.001))
+                transform.position = Vector3.MoveTowards(transform.position, GetMousePos() + _dragOffset, _speed * Time.deltaTime);
+            if ((Math.Abs(positions.Last.Value.x) - Math.Abs(transform.position.x) < 0.001) || (Math.Abs(transform.position.x) - Math.Abs(positions.Last.Value.x) < 0.001))
+                transform.position = Vector3.MoveTowards(transform.position, GetMousePos() + _dragOffset, _speed * Time.deltaTime);
         }
     }
 
@@ -45,6 +73,7 @@ public class Dragger : MonoBehaviour
         isHeld = false;
         rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
         rb.isKinematic = false;
+        canMove = false;
     }
 
     Vector3 GetMousePos()

@@ -1,0 +1,1466 @@
+fileFormatVersion: 2
+guid: 71b8bc033664131469d781f76d917cfa
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: akira_fire_spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7184
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f408cfbe567e6e447b53323b2485d429
+      internalID: -405588345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: akira_fire_spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 7184
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1af9f114b3d2c143b65676450fed4ac
+      internalID: 404701865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: akira_fire_spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 7184
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 417de3a65faad7b498d2989b86a88eb0
+      internalID: 48210636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: akira_fire_spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 7184
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 231973c30e662ae4fb40a832b00a0973
+      internalID: -1926452558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: akira_fire_spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 4096
+        y: 7184
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22879c31d67a95749bf76ffed39c51ab
+      internalID: 469591447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: akira_fire_spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 7184
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 971842237c745a24baac45100b21e622
+      internalID: 1055186733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: akira_fire_spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 6144
+        y: 7184
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d3faeba8107ca74abb546416c3fef4a
+      internalID: -113746683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: akira_fire_spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 7168
+        y: 7184
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69c1421d0975d6d4cbbac73f39791794
+      internalID: -804180719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: akira_fire_spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6160
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a51960ae008ab0b4dbc6f2d9a8fd19da
+      internalID: -1228137247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: akira_fire_spritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 6160
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e16550f6da369504886430836576562c
+      internalID: -894540755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: akira_fire_spritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 6160
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 271b3bd0bc6f3584e8edcc0803f8cc28
+      internalID: -819206761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: akira_fire_spritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 6160
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdbcddfd1055e1e4996b24dc7a66ba87
+      internalID: -232803920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: akira_fire_spritesheet_12
+      rect:
+        serializedVersion: 2
+        x: 4096
+        y: 6160
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e6be8d2ec487b245b7a298b0bcbb0ff
+      internalID: 1259051467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: akira_fire_spritesheet_13
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 6160
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d2636f986221f0448869afb76a9aa2b
+      internalID: -539132594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: akira_fire_spritesheet_14
+      rect:
+        serializedVersion: 2
+        x: 6144
+        y: 6160
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a5ec0bf9fea6bc4ab8e22c0230c56c5
+      internalID: 1211739154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: akira_fire_spritesheet_15
+      rect:
+        serializedVersion: 2
+        x: 7168
+        y: 6160
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa2c95ae99b1474468655f6c36d791e1
+      internalID: -103752634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: akira_fire_spritesheet_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5136
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 655c2f84ea8346c43be9be69c34a5416
+      internalID: -1701487845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: akira_fire_spritesheet_17
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 5136
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c23738a41d835840b5b9a2532e337a8
+      internalID: 120486957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: akira_fire_spritesheet_18
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 5136
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b94df467ef8476242adf6f1352a71df5
+      internalID: -465070746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: akira_fire_spritesheet_19
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 5136
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3c853b7efc71a742bf8680fd3f67a1b
+      internalID: -124163896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: akira_fire_spritesheet_20
+      rect:
+        serializedVersion: 2
+        x: 4096
+        y: 5136
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 632e582a0ba16ea4ba39e11c5d206b12
+      internalID: 1236246828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: akira_fire_spritesheet_21
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 5136
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56584f2afbed7054e9bf3927d5002c60
+      internalID: 930577253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: akira_fire_spritesheet_22
+      rect:
+        serializedVersion: 2
+        x: 6144
+        y: 5136
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb74c895711f3e84cb7c6227fa6899a6
+      internalID: 580643303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: akira_fire_spritesheet_23
+      rect:
+        serializedVersion: 2
+        x: 7168
+        y: 5136
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4016223277f9585479b7e39defc2968d
+      internalID: 1163643214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: akira_fire_spritesheet_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4112
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c81dca0a38e33d44f9f52584297be8d0
+      internalID: 1493067790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: akira_fire_spritesheet_25
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 4112
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9ec2932e76901a4a8e56a47a8a87b82
+      internalID: -64482959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: akira_fire_spritesheet_26
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 4112
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d132119a6ebbcf42a0dfc63275d129a
+      internalID: -1962660472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: akira_fire_spritesheet_27
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 4112
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecc0c17d29a68c64293044474b928a27
+      internalID: -1702827014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: akira_fire_spritesheet_28
+      rect:
+        serializedVersion: 2
+        x: 4096
+        y: 4112
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d078c87369f3bee4eba30bde5d62297d
+      internalID: 1532023420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: akira_fire_spritesheet_29
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 4112
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79351363c8f4c834ca12075ddf55e10d
+      internalID: -2069185002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: akira_fire_spritesheet_30
+      rect:
+        serializedVersion: 2
+        x: 6144
+        y: 4112
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f6fd7315789d944e92cf8f151b0979e
+      internalID: -341214776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: akira_fire_spritesheet_31
+      rect:
+        serializedVersion: 2
+        x: 7168
+        y: 4112
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 778f2435754cd7d478c5c0c907d2dd17
+      internalID: -1684379809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: akira_fire_spritesheet_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3088
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef2b92959fd292c4ab6f75491c117cf3
+      internalID: -968640556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: akira_fire_spritesheet_33
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 3088
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9b6b459e16707d458741aaa41d46901
+      internalID: 436156722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: akira_fire_spritesheet_34
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 3088
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e75fac73a5574da489b3c73407c94cdf
+      internalID: 408575732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: akira_fire_spritesheet_35
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 3088
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0278ef6e5c661ab40a2ed6af0629db3f
+      internalID: 288915437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: akira_fire_spritesheet_36
+      rect:
+        serializedVersion: 2
+        x: 4096
+        y: 3088
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b32110fac872eee4ba87da83f7ee05f6
+      internalID: -1048204237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: akira_fire_spritesheet_37
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 3088
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50403f8c6a35cf94baf679eb831698ac
+      internalID: -2108595736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: akira_fire_spritesheet_38
+      rect:
+        serializedVersion: 2
+        x: 6144
+        y: 3088
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98bbf5f18c557ba43a7ea1d39d3b253c
+      internalID: 1665308587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: akira_fire_spritesheet_39
+      rect:
+        serializedVersion: 2
+        x: 7168
+        y: 3088
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5d302b5c1acbb445a62179f5b707c8c
+      internalID: -940116305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: akira_fire_spritesheet_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2064
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bac2b01380c8c0419d653da53cbe490
+      internalID: 1905141072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: akira_fire_spritesheet_41
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 2064
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08af64bd09e64a44a9b3fa2e74a688ec
+      internalID: 1151332741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: akira_fire_spritesheet_42
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 2064
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfa69cab047902342aa2026a9e1c4e33
+      internalID: 1600467282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: akira_fire_spritesheet_43
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 2064
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74d44fe43d9c0ae4e984263e1be1bfca
+      internalID: 426533007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: akira_fire_spritesheet_44
+      rect:
+        serializedVersion: 2
+        x: 4096
+        y: 2064
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d3ccaa7e45c8694fb9e4ba9de74b7be
+      internalID: 579513515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: akira_fire_spritesheet_45
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 2064
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 195a3aa5e2111e04e873e5b83082f1b7
+      internalID: -1329523450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: akira_fire_spritesheet_46
+      rect:
+        serializedVersion: 2
+        x: 6144
+        y: 2064
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8aad54a7923f2cb47ac0d0b058cd5dce
+      internalID: 1806758151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: akira_fire_spritesheet_47
+      rect:
+        serializedVersion: 2
+        x: 7168
+        y: 2064
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c5c0e2a32e8db648b18771f5ad2923a
+      internalID: 307279580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: akira_fire_spritesheet_48
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1040
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eaf29e8254e07664c9b94fdf6b39e5e8
+      internalID: 717249625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: akira_fire_spritesheet_49
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1040
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56771e330ffd1f744befe449c2a92f00
+      internalID: 1171535033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: akira_fire_spritesheet_50
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1040
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f12a4b50c9b6fa3428c289248cf29fb7
+      internalID: -1086857979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: akira_fire_spritesheet_51
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 1040
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae22d17eb91ea594ea415b1df0ad59c9
+      internalID: 818529024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: akira_fire_spritesheet_52
+      rect:
+        serializedVersion: 2
+        x: 4096
+        y: 1040
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7884afc4769ceae4ca9ad6b139a9b10c
+      internalID: -742844749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: akira_fire_spritesheet_53
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 1040
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8037560f03d3264c959856808da963d
+      internalID: -2091559956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: akira_fire_spritesheet_54
+      rect:
+        serializedVersion: 2
+        x: 6144
+        y: 1040
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3196edc0c3969ba47a035d8554f31ec5
+      internalID: -1992797811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: akira_fire_spritesheet_55
+      rect:
+        serializedVersion: 2
+        x: 7168
+        y: 1040
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57bb3acce92108340b6e8daa3f6fdf11
+      internalID: 2075237764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: akira_fire_spritesheet_56
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 16
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3ad73f74069ed143ab70811309cf391
+      internalID: 738350778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: akira_fire_spritesheet_57
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 16
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cefcfba311c5e0408fb2c8ed89015f5
+      internalID: 1174475560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: akira_fire_spritesheet_58
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 16
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc590890aba5e824fb6ab8762e241e5c
+      internalID: -700225168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: akira_fire_spritesheet_59
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 16
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8b29451ee42cf04bb8095ad2f114b42
+      internalID: -231847447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: akira_fire_spritesheet_60
+      rect:
+        serializedVersion: 2
+        x: 4096
+        y: 16
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da38def6e15b5fd4dbb61ea7ad22c9ce
+      internalID: 1646467716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      akira_fire_spritesheet_15: -103752634
+      akira_fire_spritesheet_27: -1702827014
+      akira_fire_spritesheet_30: -341214776
+      akira_fire_spritesheet_55: 2075237764
+      akira_fire_spritesheet_23: 1163643214
+      akira_fire_spritesheet_48: 717249625
+      akira_fire_spritesheet_52: -742844749
+      akira_fire_spritesheet_39: -940116305
+      akira_fire_spritesheet_57: 1174475560
+      akira_fire_spritesheet_58: -700225168
+      akira_fire_spritesheet_21: 930577253
+      akira_fire_spritesheet_6: -113746683
+      akira_fire_spritesheet_7: -804180719
+      akira_fire_spritesheet_29: -2069185002
+      akira_fire_spritesheet_56: 738350778
+      akira_fire_spritesheet_4: 469591447
+      akira_fire_spritesheet_11: -232803920
+      akira_fire_spritesheet_17: 120486957
+      akira_fire_spritesheet_28: 1532023420
+      akira_fire_spritesheet_35: 288915437
+      akira_fire_spritesheet_50: -1086857979
+      akira_fire_spritesheet_33: 436156722
+      akira_fire_spritesheet_59: -231847447
+      akira_fire_spritesheet_32: -968640556
+      akira_fire_spritesheet_2: 48210636
+      akira_fire_spritesheet_3: -1926452558
+      akira_fire_spritesheet_13: -539132594
+      akira_fire_spritesheet_0: -405588345
+      akira_fire_spritesheet_19: -124163896
+      akira_fire_spritesheet_31: -1684379809
+      akira_fire_spritesheet_54: -1992797811
+      akira_fire_spritesheet_53: -2091559956
+      akira_fire_spritesheet_22: 580643303
+      akira_fire_spritesheet_42: 1600467282
+      akira_fire_spritesheet_20: 1236246828
+      akira_fire_spritesheet_49: 1171535033
+      akira_fire_spritesheet_51: 818529024
+      akira_fire_spritesheet_46: 1806758151
+      akira_fire_spritesheet_44: 579513515
+      akira_fire_spritesheet_9: -894540755
+      akira_fire_spritesheet_26: -1962660472
+      akira_fire_spritesheet_41: 1151332741
+      akira_fire_spritesheet_34: 408575732
+      akira_fire_spritesheet_10: -819206761
+      akira_fire_spritesheet_12: 1259051467
+      akira_fire_spritesheet_60: 1646467716
+      akira_fire_spritesheet_40: 1905141072
+      akira_fire_spritesheet_24: 1493067790
+      akira_fire_spritesheet_25: -64482959
+      akira_fire_spritesheet_45: -1329523450
+      akira_fire_spritesheet_36: -1048204237
+      akira_fire_spritesheet_1: 404701865
+      akira_fire_spritesheet_8: -1228137247
+      akira_fire_spritesheet_47: 307279580
+      akira_fire_spritesheet_16: -1701487845
+      akira_fire_spritesheet_18: -465070746
+      akira_fire_spritesheet_5: 1055186733
+      akira_fire_spritesheet_14: 1211739154
+      akira_fire_spritesheet_43: 426533007
+      akira_fire_spritesheet_37: -2108595736
+      akira_fire_spritesheet_38: 1665308587
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

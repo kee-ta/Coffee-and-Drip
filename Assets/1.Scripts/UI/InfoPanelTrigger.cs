@@ -13,7 +13,7 @@ public class InfoPanelTrigger : MonoBehaviour
 
     private IEnumerator WaitABit()
     {
-        yield return new WaitForSecondsRealtime(5);
+        yield return new WaitForSecondsRealtime(15);
         OnMouseExit();
     }
 
