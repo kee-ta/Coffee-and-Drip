@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using System.Linq;
+using System;
 using UnityEngine.SceneManagement;
 public class CoffeeResultController : MonoBehaviour
 {
@@ -25,6 +26,9 @@ public class CoffeeResultController : MonoBehaviour
     [SerializeField] Brewer brewer;
     [SerializeField] BrewingController brewingController;
 
+    public static Action questComplete;
+    public static Action questInComplete;
+
     int Score = 0;
     int sweetScore = 0, acidScore = 0, aromaScore = 0, bodyScore = 0;
 
@@ -40,7 +44,7 @@ public class CoffeeResultController : MonoBehaviour
             acidScore += x.GetComponent<GroundedCoffeeBeans>().grind.acidity;
             aromaScore += x.GetComponent<GroundedCoffeeBeans>().grind.aroma;
         }
-        bodyScore = brewingController.bodyScore + 50;
+        bodyScore = brewingController.bodyScore + 200;
 
         Score = bodyScore + sweetScore + acidScore + aromaScore;
     }
@@ -108,10 +112,13 @@ public class CoffeeResultController : MonoBehaviour
 
     public void ToDialogue () {
         AudioManager.instance.PlaySound2D("buttonPress");
-        SceneManager.UnloadSceneAsync("Tutorial");
-        SceneManager.LoadScene("Dialogue",LoadSceneMode.Additive);
-        StartCoroutine(hack());
-        
+        scoreCanvas.gameObject.SetActive(false);
+        if(Score >= 100)
+        questComplete?.Invoke();
+        else
+        questInComplete?.Invoke();
+
+        //StartCoroutine(hack());
     }
 
     private IEnumerator hack()
@@ -125,9 +132,9 @@ public class CoffeeResultController : MonoBehaviour
         scoreCanvas.gameObject.SetActive(true);
         //LeanTween.move(holder, new Vector3(1002, 547, 0), 0.5f);
         LeanTween.value(gameObject, 00, Score, 6f).setOnUpdate(SetScore);
-        LeanTween.value(gameObject, 00, sweetScore, 4f).setOnUpdate(SetSweetness);
-        LeanTween.value(gameObject, 00, aromaScore, 3f).setOnUpdate(SetAroma);
+        LeanTween.value(gameObject, 00, sweetScore, 1f).setOnUpdate(SetSweetness);
+        LeanTween.value(gameObject, 00, aromaScore, 1f).setOnUpdate(SetAroma);
         LeanTween.value(gameObject, 00, acidScore, 1f).setOnUpdate(SetAcid);
-        LeanTween.value(gameObject, 00, bodyScore, 2f).setOnUpdate(SetBody);
+        LeanTween.value(gameObject, 00, bodyScore, 1f).setOnUpdate(SetBody);
     }
 }

@@ -238,8 +238,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f367cd9806f35e2498769f001135a74d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneTranquil: {fileID: 8300000, guid: c41e719a6639e3443a9d721aaa6160b4, type: 3}
+  sceneTranquil: {fileID: 8300000, guid: 1def20f2a38dc0248b8e8c0da3fa8ea4, type: 3}
   mainMenu: {fileID: 8300000, guid: f5a211dc87972e14480a8766f48c7a87, type: 3}
+  energy: {fileID: 8300000, guid: c41e719a6639e3443a9d721aaa6160b4, type: 3}
 --- !u!114 &717319954
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -313,7 +314,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ambientWind: {fileID: 8300000, guid: 077e3ca6be5041d4cb7b5b362060582a, type: 3}
   ambientRain: {fileID: 8300000, guid: 38f81ace83711434caa99cf2bffea9cd, type: 3}
-  ambientForest: {fileID: 0}
+  ambientForest: {fileID: 8300000, guid: 396962c01b774c444834be3d0e9df38b, type: 3}
 --- !u!1 &894522035
 GameObject:
   m_ObjectHideFlags: 0

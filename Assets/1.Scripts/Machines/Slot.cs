@@ -1,26 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class Slot : MonoBehaviour
+public class Slot : MonoBehaviour, IPointerDownHandler
 {
-    [SerializeField] private List<GroundedCoffeeBeans> beans;
+    [SerializeField] GameObject beanObject; 
     public GroundCoffeeData groundCoffeeData;
 
-    [Header("Grind Settings")]
-    public int acidity, aroma, sweetness;
+    GroundedCoffeeBeans beans { get; }
 
     private void OnMouseDown()
     {
-        Spawn(((int)groundCoffeeData.roast)-1);
+        Spawn(0);
     }
 
-    public void Spawn(int x){
-        groundCoffeeData.acidity = acidity;
-        groundCoffeeData.aroma = aroma;
-        groundCoffeeData.sweetness = sweetness;
-        GroundedCoffeeBeans temp = Instantiate(beans[x],transform.position,transform.rotation);
-        temp.grind = groundCoffeeData;
+    public void OnPointerDown(PointerEventData data)
+    {
+        Spawn(0);
+    }
+    public void Spawn(int x)
+    {
+        GroundedCoffeeBeans temp = Instantiate(beanObject, transform.position, transform.rotation).GetComponent<GroundedCoffeeBeans>();
+        temp.grind.acidity = groundCoffeeData.acidity;
+        temp.grind.aroma = groundCoffeeData.aroma;
+        temp.grind.sweetness = groundCoffeeData.sweetness;
+        temp.grind.itemId = groundCoffeeData.itemId;
+        temp.grind.roast = groundCoffeeData.roast;
+        Debug.Log("Spawn Ground");
     }
     // Start is called before the first frame update
     void Start()

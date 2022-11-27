@@ -11,6 +11,23 @@ public class QuestDisplay : MonoBehaviour
 
     private Vector3 readyPos = new Vector3(20, 220, 0);
     private Vector3 shownPos = new Vector3(20, -10, 0);
+
+    private void OnEnable()
+    {
+        GameUI.bookClosed += Display;
+        CoffeeResultController.questComplete += QuestComplete;
+    }
+    private void QuestComplete()
+    {
+        Refresh();
+        SetText("All Quests Complete!");
+    }
+    private void OnDisable()
+    {
+        GameUI.bookClosed -= Display;
+        CoffeeResultController.questComplete -= QuestComplete;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,7 +63,7 @@ public class QuestDisplay : MonoBehaviour
             time += Time.deltaTime;
             yield return null;
         }
-         yield return StartCoroutine(AnimateIn()); 
+        yield return StartCoroutine(AnimateIn());
     }
 
     private IEnumerator AnimateOut()

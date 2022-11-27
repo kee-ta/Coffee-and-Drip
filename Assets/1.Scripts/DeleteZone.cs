@@ -6,9 +6,9 @@ public class DeleteZone : MonoBehaviour
 {
     private void OnTriggerStay2D(Collider2D other)
     {
-        if(other.gameObject.GetComponent<RoastedCoffeeBeans>() || other.gameObject.GetComponent<RawCoffeeBeans>())
+        if (other.gameObject.GetComponent<RoastedCoffeeBeans>() || other.gameObject.GetComponent<RawCoffeeBeans>() || other.gameObject.GetComponent<GroundedCoffeeBeans>())
         {
-            if(other.gameObject.GetComponent<Dragger>().isHeld)
+            if (!other.gameObject.GetComponent<Dragger>().isHeld)
             {
                 Destroy(other.gameObject);
             }

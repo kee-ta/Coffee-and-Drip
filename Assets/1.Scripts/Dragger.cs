@@ -14,11 +14,12 @@ public class Dragger : MonoBehaviour
     bool canMove = true;
     LinkedList<Vector3> positions = new LinkedList<Vector3>();
 
-    [SerializeField] private float _speed = 10;
+    [SerializeField] private float _speed = 5;
 
     private void Start()
     {
         canMove = true;
+        isHeld=true;
     }
     void Awake()
     {

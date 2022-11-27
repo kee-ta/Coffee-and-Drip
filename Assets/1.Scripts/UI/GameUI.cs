@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System;
 
 public class GameUI : MonoBehaviour
 {
     public Canvas canvas;
     public GameObject book;
+
+    public static Action bookClosed;
     
     // Start is called before the first frame update
     void Start()
@@ -16,8 +19,8 @@ public class GameUI : MonoBehaviour
     }
 
     public void OpenOrClose () {
-        //AudioManager.instance.PlaySound2D("bookFlip");
-        //AudioManager.instance.PlaySound2D("buttonPress");
+        AudioManager.instance.PlaySound2D("bookFlip");
+        AudioManager.instance.PlaySound2D("buttonPress");
         if(book.activeInHierarchy)
         {
             book.SetActive(false);
@@ -26,6 +29,7 @@ public class GameUI : MonoBehaviour
         {
             book.SetActive(true);
         }
+        bookClosed?.Invoke();
     }
 
     // Update is called once per frame

@@ -20,7 +20,7 @@ public class BrewingController : MonoBehaviour
     [SerializeField] Transform brewZone;
     [SerializeField] float brewSize = .15f;
     [SerializeField] float brewSpeed = 50f;
-    [SerializeField] float brewGravity = .05f;
+    [SerializeField] float brewGravity = .08f;
 
     [Header("Progress Bar Settings")]
     [SerializeField] Image progressContainer;
@@ -102,6 +102,8 @@ public class BrewingController : MonoBehaviour
             {
                 Debug.Log("Done!");
                 finishedBrewing?.Invoke();
+                brewProgress = 0;
+                Reset();
                 Debug.Log("Body score is " + bodyScore.ToString());
             }
         }
@@ -109,11 +111,11 @@ public class BrewingController : MonoBehaviour
         {
             brewProgress -= decay * Time.deltaTime;
             bodyScore--;
-            pitchLowInterval+= Time.deltaTime;
+            pitchLowInterval += Time.deltaTime;
             if (pitchLowInterval > 0.4f)
             {
-                if(source.pitch >= 0.9f)
-                source.pitch -= 0.05f;
+                if (source.pitch >= 0.9f)
+                    source.pitch -= 0.05f;
                 pitchLowInterval = 0f;
             }
             if (brewProgress <= -2)
@@ -129,10 +131,19 @@ public class BrewingController : MonoBehaviour
             timeElasped = 0;
         }
     }
+
+    private void Reset()
+    {
+        progressContainer.fillAmount = 0;
+        source.pitch = 1.0f;
+        bodyScore = 0;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         bodyScore = 0;
+        source.volume = 0.3f;
     }
 
     // Update is called once per frame

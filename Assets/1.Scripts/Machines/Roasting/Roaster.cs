@@ -22,6 +22,8 @@ public class Roaster : Machine
     public RawCoffeeBeans rawBeans { get; set; }
 
     private Collider2D funnelCol;
+
+    GreenBeanData loadedData;
     public RoasterBody roastBody;
 
     private void Start()
@@ -81,10 +83,12 @@ public class Roaster : Machine
                                                                   transform.position.y + UnityEngine.Random.Range(2, 3),
                                                                   transform.position.z), transform.rotation).gameObject;
                     temp = foo.GetComponent<RoastedCoffeeBeans>().roast;
+                    
                     temp.roastLevel = RoastLevel.LIGHT;
-                    temp.acidity = 4;
-                    temp.sweetness = 8;
-                    temp.aroma = 1;
+                    temp.acidity = rawBeans.rawStats.acidity+rawBeans.rawStats.light.acidMod;
+                    temp.sweetness = rawBeans.rawStats.sweetness+rawBeans.rawStats.light.sweetMod;
+                    temp.aroma = rawBeans.rawStats.aroma+rawBeans.rawStats.light.aromaMod;
+                    temp.ingredientID = rawBeans.rawStats.ingredientID+ 100;
                     rb = foo.GetComponent<Rigidbody2D>();
                     rb.AddForce(new Vector2(2f, 2f), ForceMode2D.Impulse);
                 }
@@ -98,9 +102,13 @@ public class Roaster : Machine
                                                                   transform.position.z), transform.rotation).gameObject;
                     temp = foo.GetComponent<RoastedCoffeeBeans>().roast;
                     temp.roastLevel = RoastLevel.MEDIUM;
-                    temp.acidity = 6;
-                    temp.sweetness = 3;
-                    temp.aroma = 2;
+                    temp.acidity = rawBeans.rawStats.acidity+rawBeans.rawStats.medium.acidMod;
+                    temp.sweetness = rawBeans.rawStats.sweetness+rawBeans.rawStats.medium.sweetMod;
+                    temp.aroma = rawBeans.rawStats.aroma+rawBeans.rawStats.medium.aromaMod;
+                    temp.ingredientID = rawBeans.rawStats.ingredientID+ 200;
+                    Debug.Log("Mods are:" +rawBeans.rawStats.medium.acidMod.ToString() + "/"
+                                            +rawBeans.rawStats.medium.sweetMod.ToString()+ "/"
+                                            +rawBeans.rawStats.medium.aromaMod.ToString());
                     rb = foo.GetComponent<Rigidbody2D>();
                     rb.AddForce(new Vector2(2f, 2f), ForceMode2D.Impulse);
                 }
@@ -114,9 +122,10 @@ public class Roaster : Machine
                                                                   transform.position.z), transform.rotation).gameObject;
                     temp = foo.GetComponent<RoastedCoffeeBeans>().roast;
                     temp.roastLevel = RoastLevel.DARK;
-                    temp.acidity = 9;
-                    temp.sweetness = 5;
-                    temp.aroma = 3;
+                    temp.acidity = rawBeans.rawStats.acidity+rawBeans.rawStats.dark.acidMod;
+                    temp.sweetness = rawBeans.rawStats.sweetness+rawBeans.rawStats.dark.sweetMod;
+                    temp.aroma = rawBeans.rawStats.aroma+rawBeans.rawStats.dark.aromaMod;
+                    temp.ingredientID = rawBeans.rawStats.ingredientID+ 300;
                     rb = foo.GetComponent<Rigidbody2D>();
                     rb.AddForce(new Vector2(2f, 2f), ForceMode2D.Impulse);
                 }

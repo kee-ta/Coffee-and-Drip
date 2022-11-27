@@ -8,6 +8,7 @@ public class MusicManager : MonoBehaviour
 
     public AudioClip sceneTranquil;
     public AudioClip mainMenu;
+    public AudioClip energy;
     bool stopRepeat = true;
     private int timesCalled;
     void OnEnable()

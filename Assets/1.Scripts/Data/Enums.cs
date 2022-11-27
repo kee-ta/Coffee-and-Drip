@@ -1,3 +1,5 @@
+using System;
+
 public enum RoastLevel
 {
     NULL,
@@ -29,7 +31,7 @@ public enum QuestType
     FLAVOR_NUTTY,
     FLAVOR_SOUR
 }
-
+[Serializable]
 public class RoastModifier
 {
     public int sweetMod;

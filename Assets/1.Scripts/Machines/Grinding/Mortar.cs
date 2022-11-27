@@ -18,7 +18,7 @@ public class Mortar : MonoBehaviour
 
     private int hp = 0;
     private RoastLevel loadedType;
-
+    RoastCoffeeData loadedBean;
     bool isColliding = false;
 
     private int currentImage = 0;
@@ -29,6 +29,7 @@ public class Mortar : MonoBehaviour
         isColliding = true;
         if (col.gameObject.GetComponent<RoastedCoffeeBeans>() && !loaded)
         {
+            loadedBean = col.gameObject.GetComponent<RoastedCoffeeBeans>().roast;
             AudioManager.instance.PlaySound2D("beanDrop");
             Destroy(col.gameObject);
             mounted?.Invoke();
@@ -169,9 +170,10 @@ public class Mortar : MonoBehaviour
                 rb = temp.GetComponent<Rigidbody2D>();
                 foo = temp.GetComponent<RoastedCoffeeBeans>().roast;
                 foo.roastLevel = RoastLevel.LIGHT;
-                foo.acidity = 4;
-                foo.sweetness = 8;
-                foo.aroma = 1;
+                foo.acidity = loadedBean.acidity;
+                foo.sweetness = loadedBean.sweetness;
+                foo.aroma = loadedBean.aroma;
+                foo.ingredientID = loadedBean.ingredientID;
                 rb.AddForce(new Vector2(0.0f, 2f), ForceMode2D.Impulse);
                 break;
             case RoastLevel.MEDIUM:
@@ -179,9 +181,10 @@ public class Mortar : MonoBehaviour
                 temp.GetComponent<RoastCoffeeData>().roastLevel = RoastLevel.MEDIUM;
                 foo = temp.GetComponent<RoastedCoffeeBeans>().roast;
                 foo.roastLevel = RoastLevel.MEDIUM;
-                foo.acidity = 6;
-                foo.sweetness = 3;
-                foo.aroma = 2;
+                foo.acidity = loadedBean.acidity;
+                foo.sweetness = loadedBean.sweetness;
+                foo.aroma = loadedBean.aroma;
+                foo.ingredientID = loadedBean.ingredientID;
                 rb = temp.GetComponent<Rigidbody2D>();
                 rb.AddForce(new Vector2(0.0f, 2f), ForceMode2D.Impulse);
                 break;
@@ -189,10 +192,10 @@ public class Mortar : MonoBehaviour
                 temp = Instantiate(roasts[2], transform.position, transform.rotation).gameObject;
                 temp.GetComponent<RoastCoffeeData>().roastLevel = RoastLevel.DARK;
                 foo = temp.GetComponent<RoastedCoffeeBeans>().roast;
-                foo.roastLevel = RoastLevel.DARK;
-                foo.acidity = 9;
-                foo.sweetness = 5;
-                foo.aroma = 3;
+                foo.acidity = loadedBean.acidity;
+                foo.sweetness = loadedBean.sweetness;
+                foo.aroma = loadedBean.aroma;
+                foo.ingredientID = loadedBean.ingredientID;
                 rb = temp.GetComponent<Rigidbody2D>();
                 rb.AddForce(new Vector2(0.0f, 2f), ForceMode2D.Impulse);
                 break;
@@ -215,9 +218,11 @@ public class Mortar : MonoBehaviour
                 temp = Instantiate(grounds[0], transform.position, transform.rotation).gameObject;
                 temp.GetComponent<GroundedCoffeeBeans>().grind.roast = RoastLevel.LIGHT;
                 foo = temp.GetComponent<GroundedCoffeeBeans>().grind;
-                foo.acidity = 4;
-                foo.sweetness = 8;
-                foo.aroma = 1;
+                foo.acidity = loadedBean.acidity;
+                foo.sweetness = loadedBean.sweetness;
+                foo.aroma = loadedBean.aroma;
+                foo.ingredientID = loadedBean.ingredientID;
+                Debug.Log("Spawned id is" + foo.ingredientID);Debug.Log("Spawned id is" + foo.ingredientID);
                 rb = temp.GetComponent<Rigidbody2D>();
                 rb.AddForce(new Vector2(0.0f, 6f), ForceMode2D.Impulse);
                 break;
@@ -225,9 +230,11 @@ public class Mortar : MonoBehaviour
                 temp = Instantiate(grounds[1], transform.position, transform.rotation).gameObject;
                 temp.GetComponent<GroundedCoffeeBeans>().grind.roast = RoastLevel.MEDIUM;
                 foo = temp.GetComponent<GroundedCoffeeBeans>().grind;
-                foo.acidity = 4;
-                foo.sweetness = 8;
-                foo.aroma = 1;
+                foo.acidity = loadedBean.acidity;
+                foo.sweetness = loadedBean.sweetness;
+                foo.aroma = loadedBean.aroma;
+                foo.ingredientID = loadedBean.ingredientID;
+                Debug.Log("Spawned id is" + foo.ingredientID);
                 rb = temp.GetComponent<Rigidbody2D>();
                 rb.AddForce(new Vector2(0.0f, 6f), ForceMode2D.Impulse);
                 break;
@@ -235,16 +242,18 @@ public class Mortar : MonoBehaviour
                 temp = Instantiate(grounds[2], transform.position, transform.rotation).gameObject;
                 temp.GetComponent<GroundedCoffeeBeans>().grind.roast = RoastLevel.DARK;
                 foo = temp.GetComponent<GroundedCoffeeBeans>().grind;
-                foo.acidity = 4;
-                foo.sweetness = 8;
-                foo.aroma = 1;
+                foo.acidity = loadedBean.acidity;
+                foo.sweetness = loadedBean.sweetness;
+                foo.aroma = loadedBean.aroma;
+                foo.ingredientID = loadedBean.ingredientID;
+                Debug.Log("Spawned id is" + foo.ingredientID);
                 rb = temp.GetComponent<Rigidbody2D>();
                 rb.AddForce(new Vector2(0.0f, 6f), ForceMode2D.Impulse);
                 break;
             default:
                 break;
         }
-
+        
         StartCoroutine(hack());
     }
 

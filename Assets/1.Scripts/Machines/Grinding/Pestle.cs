@@ -9,7 +9,7 @@ public class Pestle : MonoBehaviour
     private Vector3 _dragOffset;
     public Rigidbody2D rb;
     public bool isHeld = false; 
-    bool canMove = true;
+    //bool canMove = true;
     LinkedList<Vector3> positions = new LinkedList<Vector3>();
     [SerializeField] private float _speed = 15;
 

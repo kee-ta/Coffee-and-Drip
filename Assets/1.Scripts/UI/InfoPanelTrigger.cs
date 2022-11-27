@@ -13,10 +13,14 @@ public class InfoPanelTrigger : MonoBehaviour
 
     private IEnumerator WaitABit()
     {
-        yield return new WaitForSecondsRealtime(15);
+        yield return new WaitForSecondsRealtime(12);
         OnMouseExit();
     }
 
+    private void OnDisable()
+    {
+        InfoPanelSystem.Hide();
+    }
 
     private void OnMouseEnter()
     {
@@ -25,13 +29,13 @@ public class InfoPanelTrigger : MonoBehaviour
             switch (type)
             {
                 case TooltipType.GROUNDEDCOFFEE:
-                iD = gameObject.GetComponent<GroundedCoffeeBeans>().grind;
+                    iD = gameObject.GetComponent<GroundedCoffeeBeans>().grind;
                     break;
                 case TooltipType.RAWCOFFEE:
-                iD = gameObject.GetComponent<RawCoffeeBeans>().rawStats;
+                    iD = gameObject.GetComponent<RawCoffeeBeans>().rawStats;
                     break;
                 case TooltipType.ROASTCOFFEE:
-                iD = gameObject.GetComponent<RoastedCoffeeBeans>().roast;
+                    iD = gameObject.GetComponent<RoastedCoffeeBeans>().roast;
                     break;
                 default:
 

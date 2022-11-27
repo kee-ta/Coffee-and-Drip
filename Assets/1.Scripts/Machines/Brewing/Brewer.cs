@@ -12,6 +12,26 @@ public class Brewer : MonoBehaviour
 
     private Vector3 stagePos = new Vector3(18, -1, 0);
     public int maxBrewSlots = 3;
+
+    private void OnEnable()
+    {
+        BrewingController.finishedBrewing += Reset;
+    }
+
+    private void OnDisable()
+    {
+        BrewingController.finishedBrewing -= Reset;
+    }
+
+    private void Reset()
+    {
+        brewStack.Clear();
+        for (int i = 0; i < 3; i++)
+        {
+            slotCleared?.Invoke();
+        }
+    }
+
     private void OnCollisionEnter2D(Collision2D other)
     {
         Debug.Log("Brewer hit");
@@ -26,7 +46,7 @@ public class Brewer : MonoBehaviour
                 other.gameObject.SetActive(false);
                 other.gameObject.GetComponent<Transform>().position = stagePos;
                 slotFilled?.Invoke();
-                
+
                 Debug.Log("Sweetness is" + other.gameObject.GetComponent<GroundedCoffeeBeans>().grind.sweetness.ToString());
             }
         }

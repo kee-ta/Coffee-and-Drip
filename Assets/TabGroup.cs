@@ -48,6 +48,16 @@ public class TabGroup : MonoBehaviour
         selectedTab = button;
         ResetTabs();
         button.background.sprite = tabActive;
+        int index = button.transform.GetSiblingIndex();
+        for(int i = 0; i < swapPages.Count; i++) {
+            if(i == index)
+            {
+                swapPages[i].SetActive(true);
+            }
+            else{
+                swapPages[i].SetActive(false);
+            }
+        }
     }
 
     public void ResetTabs()
