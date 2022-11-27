@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class PlayerController : SingletonController<PlayerController>
 {
     public Quest currentQuest;
+    public AudioClip clip;
+    public AudioSource source;
     // Start is called before the first frame update
     void Start()
     {
@@ -147,14 +149,14 @@ public class PlayerController : SingletonController<PlayerController>
 
     }
 
-    private void OnEnable() 
+    private void OnEnable()
     {
-        
+
     }
 
-    private void OnDisable() 
+    private void OnDisable()
     {
-        
+
     }
 
     private void FixedUpdate()
@@ -168,8 +170,9 @@ public class PlayerController : SingletonController<PlayerController>
 
     }
 
-    private IEnumerator MoveRight()
+    public IEnumerator MoveRight()
     {
+        //source.PlayOneShot(clip);
         float time = 0;
         while (Camera.main.transform.position != new Vector3(19.5f, 0.0f, -10.0f))
         {
@@ -179,8 +182,9 @@ public class PlayerController : SingletonController<PlayerController>
         }
     }
 
-    private IEnumerator MoveLeft()
+    public IEnumerator MoveLeft()
     {
+        //source.PlayOneShot(clip);
         float time = 0;
         while (Camera.main.transform.position != new Vector3(0.0f, 0.0f, -10.0f))
         {

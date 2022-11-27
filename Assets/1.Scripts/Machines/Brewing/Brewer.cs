@@ -13,6 +13,7 @@ public class Brewer : MonoBehaviour
     private Vector3 stagePos = new Vector3(18, -1, 0);
     public int maxBrewSlots = 3;
 
+    public AudioSource source;
     private void OnEnable()
     {
         BrewingController.finishedBrewing += Reset;
@@ -30,6 +31,7 @@ public class Brewer : MonoBehaviour
         {
             slotCleared?.Invoke();
         }
+        source.Stop();
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -37,6 +39,8 @@ public class Brewer : MonoBehaviour
         Debug.Log("Brewer hit");
         if (other.gameObject.GetComponent<GroundedCoffeeBeans>())
         {
+            source.Play();
+            source.loop = true;
             Debug.Log("Is grounded coffee");
             if (brewStack.Count < maxBrewSlots)
             {

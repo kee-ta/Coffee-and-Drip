@@ -12,6 +12,8 @@ public class God : SingletonController<God>
 
     public List<Quest> allQuests;
     public List<GreenBeanData> allRawBeans = new List<GreenBeanData>();
+
+    public GameObject pauseCanvas;
     public void GiveQuest()
     {
         List<QuestCondition> temp = new List<QuestCondition>();
@@ -46,7 +48,7 @@ public class God : SingletonController<God>
         yield return null;
 
 
-        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync("MainMenu",LoadSceneMode.Additive);
+        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync("MainMenu", LoadSceneMode.Additive);
 
         //asyncOperation.allowSceneActivation = false;
         Debug.Log("Pro :" + asyncOperation.progress);
@@ -61,8 +63,49 @@ public class God : SingletonController<God>
             yield return null;
         }
     }
+
+    private void OpenOrClose()
+    {
+        if (pauseCanvas.activeInHierarchy)
+        {
+            pauseCanvas.SetActive(false);
+            Time.timeScale = 1;
+        }
+        else
+        {
+            pauseCanvas.SetActive(true);
+            Time.timeScale = 0;
+        }
+    }
+
+    public void Resume()
+    {
+        if (pauseCanvas.activeInHierarchy)
+        {
+            pauseCanvas.SetActive(false);
+            Time.timeScale = 1;
+        }
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
+
+    public void MuteUnMuteAudio()
+    {
+        if(AudioListener.pause)
+       AudioListener.pause = false;
+       else
+       AudioListener.pause = true;
+    }
+
     private void Update()
     {
-
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            OpenOrClose();
+        }
     }
 }

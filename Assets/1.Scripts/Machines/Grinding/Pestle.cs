@@ -12,6 +12,7 @@ public class Pestle : MonoBehaviour
     //bool canMove = true;
     LinkedList<Vector3> positions = new LinkedList<Vector3>();
     [SerializeField] private float _speed = 15;
+    [SerializeField] ParticleSystem system;
 
     void Awake() 
     {
@@ -50,6 +51,7 @@ public class Pestle : MonoBehaviour
         rb.collisionDetectionMode = CollisionDetectionMode2D.Discrete;
         rb.isKinematic = true;
         _dragOffset = transform.position - GetMousePos();
+        //system.Play();
     }
 
     void OnMouseDrag() { 
@@ -67,6 +69,10 @@ public class Pestle : MonoBehaviour
         rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
         rb.isKinematic = false;
         rb.velocity = new Vector2(0.0f, 2.0f);
+    }
+
+    private void OnCollisionEnter2D(Collision2D other) {
+        system.Play();
     }
 
     Vector3 GetMousePos() {

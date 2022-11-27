@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using Ink.Runtime;
 using UnityEngine.EventSystems;
+using System;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -32,6 +33,8 @@ public class DialogueManager : MonoBehaviour
     private DialogueAudioInfoSO currentAudioInfo;
     private Dictionary<string, DialogueAudioInfoSO> audioInfoDictionary;
     private AudioSource audioSource;
+
+    public static Action storyComplete;
 
     private Story currentStory;
     public bool dialogueIsPlaying { get; private set; }
@@ -272,10 +275,10 @@ public class DialogueManager : MonoBehaviour
             else 
             {
                 // sound clip
-                int randomIndex = Random.Range(0, dialogueTypingSoundClips.Length);
+                int randomIndex = UnityEngine.Random.Range(0, dialogueTypingSoundClips.Length);
                 soundClip = dialogueTypingSoundClips[randomIndex];
                 // pitch
-                audioSource.pitch = Random.Range(minPitch, maxPitch);
+                audioSource.pitch = UnityEngine.Random.Range(minPitch, maxPitch);
             }
             
             // play sound

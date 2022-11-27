@@ -102,6 +102,7 @@ public class BrewingController : MonoBehaviour
             {
                 Debug.Log("Done!");
                 finishedBrewing?.Invoke();
+                source.Stop();
                 brewProgress = 0;
                 Reset();
                 Debug.Log("Body score is " + bodyScore.ToString());
@@ -127,7 +128,7 @@ public class BrewingController : MonoBehaviour
         timeElasped += Time.deltaTime;
         if (timeElasped > 0.5f)
         {
-            source.PlayOneShot(blop);
+            //source.PlayOneShot(blop);
             timeElasped = 0;
         }
     }
@@ -139,6 +140,12 @@ public class BrewingController : MonoBehaviour
         bodyScore = 0;
     }
 
+    private void OnEnable() {
+        source.Play();
+    }
+    private void OnDisable() {
+        source.Stop();
+    }
     // Start is called before the first frame update
     void Start()
     {

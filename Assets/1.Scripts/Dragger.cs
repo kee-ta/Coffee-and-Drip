@@ -9,6 +9,8 @@ public class Dragger : MonoBehaviour
     private Camera _cam;
     public Rigidbody2D rb;
 
+    public ParticleSystem particles;
+
     public bool canDrag = true;
     public bool isHeld = false;
     bool canMove = true;
@@ -54,7 +56,7 @@ public class Dragger : MonoBehaviour
             rb.isKinematic = true;
             _dragOffset = transform.position - GetMousePos();
         }
-
+        particles.Play();
         canMove = false;
     }
 
