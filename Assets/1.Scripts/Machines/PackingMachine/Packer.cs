@@ -76,7 +76,7 @@ public class Packer : MonoBehaviour
             }
         }
     }
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerExit2D(Collider2D other)
     {
         ready.SetActive(false);
     }

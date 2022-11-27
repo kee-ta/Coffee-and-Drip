@@ -43,6 +43,8 @@ public class Mortar : MonoBehaviour
             if ((hp < 2))
             {
                 AudioManager.instance.PlaySound2D("mortarHit");
+                AudioManager.instance.PlaySound2D("stoneSmack");
+                AudioManager.instance.PlaySound2D("rockHit");
                 hp++;
                 SetSprite(loadedType, hp);
             }

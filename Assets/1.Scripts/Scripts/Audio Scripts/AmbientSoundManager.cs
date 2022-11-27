@@ -8,7 +8,7 @@ public class AmbientSoundManager : SingletonController<AmbientSoundManager>
 	public AudioClip ambientRain;
     public AudioClip ambientForest;
 	void Start(){
-		
+		PlayForest();
 	}
 
     void OnEnable(){

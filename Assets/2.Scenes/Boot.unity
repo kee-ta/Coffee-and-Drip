@@ -262,8 +262,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 3a002f848f93f974bbab412c1c2985f2, type: 3}
   - groupID: beanDrop
     group:
-    - {fileID: 8300000, guid: 608301eecad197940b34b4c826fb8ccf, type: 3}
-    - {fileID: 8300000, guid: e6311ca63a604a04c9602aeb2f44aa1d, type: 3}
+    - {fileID: 8300000, guid: 7d74460d631180a4691466d981b1b91c, type: 3}
   - groupID: buttonPress
     group:
     - {fileID: 8300000, guid: 95360b82980161549843aae5f81206ca, type: 3}
@@ -280,6 +279,12 @@ MonoBehaviour:
     group:
     - {fileID: 8300000, guid: cefa137db0de4da42af88f8f2c447423, type: 3}
     - {fileID: 8300000, guid: 9efe0a69bffba8d4290e089790b8c05c, type: 3}
+  - groupID: stoneSmack
+    group:
+    - {fileID: 8300000, guid: 5af5d3ec216ce7d49beb4ca7fe0f4383, type: 3}
+  - groupID: rockHit
+    group:
+    - {fileID: 8300000, guid: 140343648c505144db283a032890c223, type: 3}
 --- !u!114 &717319955
 MonoBehaviour:
   m_ObjectHideFlags: 0

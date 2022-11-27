@@ -10,6 +10,9 @@ public class Roaster : Machine
     [SerializeField] private GameObject tracker;
     [SerializeField] public ParticleSystem fire;
     [SerializeField] private Transform pivot;
+    
+    public AudioClip fireambiance;
+    public AudioSource source;
 
     public static Action startRoastingGame;
 
@@ -30,6 +33,7 @@ public class Roaster : Machine
     {
         funnelCol = funnel.GetComponent<Collider2D>();
         roastBody = body.GetComponent<RoasterBody>();
+        source.loop = true;
     }
 
     private void StartRoasting()
@@ -41,7 +45,8 @@ public class Roaster : Machine
             AudioManager.instance.PlaySound2D("roasterStart");
             tracker.SetActive(true);
             startRoastingGame?.Invoke();
-            AmbientSoundManager.I.PlayWind();
+            //AmbientSoundManager.I.PlayWind();
+            source.Play();
         }
     }
 
@@ -144,7 +149,8 @@ public class Roaster : Machine
         rawBeans = null;
         loaded = false;
         fire.Stop();
-        AmbientSoundManager.I.StopSound();
+        //AmbientSoundManager.I.StopSound();
+        source.Stop();
     }
 
     private IEnumerator RotatePivot()
